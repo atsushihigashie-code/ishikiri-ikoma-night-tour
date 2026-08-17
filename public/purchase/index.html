@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Buy the tour — One Coin Night Tour</title>
+<link rel="stylesheet" href="../shared/tour.css" />
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">One Coin Night Tour</div>
+  <h1 class="title">Sacred Sites &amp; Skyline Views</h1>
+  <p class="subtitle">¥500, one payment, valid any night, no expiry.</p>
+
+  <div class="card">
+    <p>After payment you'll receive an access code on-screen. Enter it on the unlock page to start the tour.</p>
+    <div class="note"><strong>Save your code</strong> — if you close this tab before writing it down, it can't be recovered without the automatic email delivery step (see TODO below).</div>
+  </div>
+
+  <!--
+    TODO(stripe): create a new Payment Link in the East River 31 Stripe
+    account — a *separate* link from the Osaka Castle Tour's, so this
+    product's sales/reporting stay isolated. Point its success URL at
+    purchase/thankyou.html (or a dedicated code-issuing success page,
+    mirroring the Osaka Castle Tour's verify-purchase.js pattern once this
+    project's own Firebase project exists).
+  -->
+  <a class="btn btn-primary" style="display:block;text-align:center;" href="#" id="buyBtn">Pay ¥500 with Stripe</a>
+
+  <div class="footer-note">EAST RIVER 31 LLC</div>
+</div>
+<script>
+  // TODO(stripe): replace with the real Payment Link URL once created.
+  document.getElementById("buyBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    alert("Stripe payment link not yet configured — see TODO in this page's source.");
+  });
+</script>
+</body>
+</html>

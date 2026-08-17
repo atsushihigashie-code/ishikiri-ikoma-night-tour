@@ -1,0 +1,321 @@
+/* One Coin Night Tour — Sacred Sites & Skyline Views
+   Design concept: the tour is a literal ascent — ground-level shrine streets,
+   up the mountain by cable car, out onto a skyline deck. The signature
+   element is a glowing "ascent rail" that tracks elevation gained, not just
+   step count. */
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --sky-deep:      #0b0e21;
+  --sky-shadow:    #05060f;
+  --sky-panel:     #12162f;
+  --sky-panel-2:   #171c38;
+  --torii:         #c1440e;
+  --torii-soft:    #e0672c;
+  --lantern:       #f2a65a;
+  --lantern-dim:   #7a5a34;
+  --moonlight:     #aab7d4;
+  --moonlight-dim: #6b7595;
+  --skyline:       #4fb0ae;
+  --paper:         #f4efe3;
+  --line:          rgba(170,183,212,0.14);
+
+  --display: 'Shippori Mincho', serif;
+  --body: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background: radial-gradient(ellipse at 50% -10%, #1a2044 0%, var(--sky-deep) 45%, var(--sky-shadow) 100%);
+  color: var(--moonlight);
+  font-family: var(--body);
+  min-height:100vh;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* faint starfield */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.5) 0, transparent 60%),
+    radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,.4) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,.35) 0, transparent 60%),
+    radial-gradient(1px 1px at 85% 60%, rgba(255,255,255,.4) 0, transparent 60%),
+    radial-gradient(1px 1px at 55% 85%, rgba(255,255,255,.3) 0, transparent 60%),
+    radial-gradient(1.5px 1.5px at 10% 80%, rgba(255,255,255,.3) 0, transparent 60%);
+  opacity:.6;
+}
+
+.wrap{
+  position:relative; z-index:1;
+  max-width:640px; margin:0 auto;
+  padding: 28px 24px 64px;
+}
+
+/* ---------- Header / eyebrow ---------- */
+.eyebrow{
+  font-family: var(--mono);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color: var(--lantern);
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:10px;
+}
+.eyebrow::before{
+  content:""; width:6px; height:6px; border-radius:50%;
+  background: var(--lantern); box-shadow: 0 0 8px 2px rgba(242,166,90,.7);
+}
+
+h1.title{
+  font-family: var(--display);
+  font-weight:600;
+  font-size: clamp(26px, 6vw, 34px);
+  color: var(--paper);
+  margin: 0 0 6px;
+  letter-spacing:.01em;
+}
+.subtitle{
+  color: var(--moonlight-dim);
+  font-size:14.5px;
+  margin: 0 0 22px;
+}
+
+/* ---------- Ascent rail (signature element) ----------
+   A vertical line of stops whose vertical position within the track encodes
+   real elevation gained on the tour (ground → mountaintop → 22F deck). */
+.ascent-rail{
+  position:relative;
+  height:64px;
+  margin: 4px 0 26px;
+  padding: 0 4px;
+}
+.ascent-rail svg{ width:100%; height:100%; display:block; }
+.ascent-rail .rail-label{
+  font-family: var(--mono);
+  font-size:9.5px;
+  fill: var(--moonlight-dim);
+  letter-spacing:.06em;
+}
+
+/* ---------- Stop badge / progress ---------- */
+.stop-badge{
+  display:inline-flex; align-items:baseline; gap:8px;
+  font-family: var(--mono);
+  color: var(--lantern);
+  font-size:12px; letter-spacing:.08em;
+  margin-bottom: 14px;
+}
+.stop-badge .n{ font-size:15px; color:var(--paper); }
+
+.dots{
+  display:flex; gap:6px; margin: 4px 0 20px;
+}
+.dots span{
+  width:6px; height:6px; border-radius:50%;
+  background: var(--line);
+}
+.dots span.done{ background: var(--lantern-dim); }
+.dots span.active{
+  background: var(--lantern);
+  box-shadow: 0 0 6px 1px rgba(242,166,90,.8);
+}
+
+/* ---------- Content card ---------- */
+.card{
+  background: linear-gradient(180deg, var(--sky-panel) 0%, var(--sky-panel-2) 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin-bottom: 18px;
+}
+.card h2{
+  font-family: var(--display);
+  font-weight:600;
+  font-size: 21px;
+  color: var(--paper);
+  margin: 0 0 12px;
+}
+.card h3{
+  font-family: var(--body);
+  font-weight:700;
+  font-size: 13px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color: var(--torii-soft);
+  margin: 18px 0 8px;
+}
+.card p{ margin: 0 0 12px; color: var(--moonlight); font-size:15px; }
+.card p:last-child{ margin-bottom:0; }
+.card ul{ margin:0 0 12px; padding-left:20px; }
+.card li{ margin-bottom:6px; font-size:15px; }
+
+.note{
+  border-left:2px solid var(--torii);
+  padding: 10px 14px;
+  background: rgba(193,68,14,0.08);
+  border-radius: 0 8px 8px 0;
+  font-size: 13.5px;
+  color: var(--moonlight);
+  margin: 14px 0;
+}
+.note strong{ color: var(--torii-soft); }
+
+.skyline-note{
+  border-left:2px solid var(--skyline);
+  padding: 10px 14px;
+  background: rgba(79,176,174,0.08);
+  border-radius: 0 8px 8px 0;
+  font-size: 13.5px;
+  color: var(--moonlight);
+  margin: 14px 0;
+}
+
+/* ---------- Photo / audio placeholders ---------- */
+.stop-gallery{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap:10px; margin: 14px 0 18px;
+}
+.photo-slot{
+  aspect-ratio: 4/3;
+  border-radius:10px;
+  border: 1px dashed var(--line);
+  background: rgba(255,255,255,0.02);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px;
+  color: var(--moonlight-dim);
+  font-family: var(--mono);
+  font-size:10.5px;
+  text-align:center;
+  padding: 8px;
+}
+.photo-slot img{ width:100%; height:100%; object-fit:cover; border-radius:10px; }
+.photo-slot svg{ width:22px; height:22px; opacity:.5; }
+
+.audio-slot{
+  display:flex; align-items:center; gap:12px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 4px 0 18px;
+  color: var(--moonlight-dim);
+  font-family: var(--mono);
+  font-size:11.5px;
+}
+.audio-slot .dot{
+  width:32px; height:32px; border-radius:50%;
+  border: 1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+audio.stop-audio{ width:100%; }
+
+/* ---------- Transit connector ---------- */
+.transit{
+  display:flex; align-items:flex-start; gap:12px;
+  margin: 4px 0 18px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.transit .icon{
+  font-family: var(--mono); font-size:11px; color: var(--skyline);
+  border: 1px solid rgba(79,176,174,.4);
+  border-radius: 6px; padding: 3px 6px; flex-shrink:0; margin-top:1px;
+}
+.transit .txt{ font-size:13.5px; color: var(--moonlight); }
+.transit .txt strong{ color: var(--paper); }
+
+/* ---------- Nav buttons ---------- */
+.nav-row{
+  display:flex; gap:10px; margin-top: 24px;
+}
+.nav-btn{
+  flex:1;
+  text-align:center;
+  padding: 14px 16px;
+  border-radius: 10px;
+  text-decoration:none;
+  font-family: var(--body);
+  font-weight:500;
+  font-size: 14.5px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.nav-btn.next{
+  background: linear-gradient(135deg, var(--torii) 0%, var(--torii-soft) 100%);
+  color: var(--paper);
+  box-shadow: 0 4px 18px rgba(193,68,14,.35);
+}
+.nav-btn.prev{
+  background: transparent;
+  color: var(--moonlight-dim);
+  border: 1px solid var(--line);
+}
+.nav-btn:active{ transform: scale(.98); }
+
+/* ---------- Buttons (generic) ---------- */
+.btn{
+  display:inline-block;
+  padding: 14px 22px;
+  border-radius: 10px;
+  text-decoration:none;
+  font-family: var(--body);
+  font-weight:500;
+  font-size: 15px;
+  text-align:center;
+  border: none;
+  cursor:pointer;
+}
+.btn-primary{
+  background: linear-gradient(135deg, var(--torii) 0%, var(--torii-soft) 100%);
+  color: var(--paper);
+  box-shadow: 0 4px 18px rgba(193,68,14,.35);
+}
+.btn-ghost{
+  background: transparent;
+  color: var(--moonlight);
+  border: 1px solid var(--line);
+}
+
+/* ---------- Route select cards (landing) ---------- */
+.route-choice{
+  display:block;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 14px;
+  text-decoration:none;
+  background: linear-gradient(180deg, var(--sky-panel) 0%, var(--sky-panel-2) 100%);
+  transition: border-color .15s ease;
+}
+.route-choice:hover{ border-color: var(--lantern-dim); }
+.route-choice .tag{
+  font-family: var(--mono); font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color: var(--skyline);
+  margin-bottom:8px; display:block;
+}
+.route-choice .tag.alt{ color: var(--moonlight-dim); }
+.route-choice h3{
+  font-family: var(--display); font-weight:600; font-size:19px;
+  color: var(--paper); margin:0 0 6px;
+}
+.route-choice p{ margin:0; font-size:13.5px; color: var(--moonlight-dim); }
+
+.footer-note{
+  text-align:center; font-size:11.5px; color: var(--moonlight-dim);
+  margin-top: 32px; font-family: var(--mono);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .card{ animation: rise .5s ease both; }
+  @keyframes rise{ from{ opacity:0; transform: translateY(8px);} to{opacity:1; transform:none;} }
+}
+
+:focus-visible{
+  outline: 2px solid var(--lantern);
+  outline-offset: 2px;
+}

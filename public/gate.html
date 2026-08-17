@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enter Access Code — One Coin Night Tour</title>
+<link rel="stylesheet" href="shared/tour.css" />
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">One Coin Night Tour</div>
+  <h1 class="title">Enter your access code</h1>
+  <p class="subtitle">You received this code after purchase. It unlocks the full tour on this device.</p>
+
+  <div class="card">
+    <input id="codeInput" type="text" inputmode="latin" autocapitalize="characters"
+      placeholder="e.g. NIGHT-XXXX"
+      style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);
+             background:rgba(255,255,255,0.03);color:var(--paper);font-family:var(--mono);
+             font-size:16px;letter-spacing:.06em;margin-bottom:14px;" />
+    <button id="submitBtn" class="btn btn-primary" style="width:100%;">Unlock tour</button>
+    <p id="errorMsg" style="color:var(--torii-soft);font-size:13px;margin-top:12px;display:none;"></p>
+  </div>
+
+  <p class="subtitle">Don't have a code yet? <a href="purchase/index.html" style="color:var(--lantern);">Purchase the tour — ¥500</a></p>
+
+  <div class="footer-note">EAST RIVER 31 LLC</div>
+</div>
+
+<script>
+  /**
+   * TODO(firebase): wire this up to the same pattern as the Osaka Castle Tour
+   * app — a Firebase Realtime Database lookup of purchased access codes,
+   * marking them used/valid. This project uses its own, separate Firebase
+   * project (kept isolated from the Osaka Castle Tour's), so the config
+   * below needs to be filled in once that project exists.
+   *
+   * const firebaseConfig = {
+   *   apiKey: "...", authDomain: "...", databaseURL: "...", projectId: "...",
+   * };
+   */
+
+  var params = new URLSearchParams(window.location.search);
+  var nextPage = params.get("next") || "route-select.html";
+
+  // TEMPORARY preview code so the flow is testable before Firebase is wired up.
+  // Remove this before launch.
+  var PREVIEW_CODES = ["PREVIEW2026"];
+
+  async function verifyCode(code) {
+    // TODO(firebase): replace with a real lookup, e.g.
+    //   const res = await fetch(databaseURL + "/accessCodes/" + code + ".json");
+    //   const data = await res.json();
+    //   return !!(data && data.valid);
+    return PREVIEW_CODES.includes(code.trim().toUpperCase());
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", async function () {
+    var code = document.getElementById("codeInput").value;
+    var errorEl = document.getElementById("errorMsg");
+    var ok = await verifyCode(code);
+    if (ok) {
+      sessionStorage.setItem("nightTourAccessGranted", "true");
+      window.location.href = nextPage;
+    } else {
+      errorEl.textContent = "That code didn't match. Check for typos, or purchase a code below.";
+      errorEl.style.display = "block";
+    }
+  });
+
+  document.getElementById("codeInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") document.getElementById("submitBtn").click();
+  });
+</script>
+</body>
+</html>

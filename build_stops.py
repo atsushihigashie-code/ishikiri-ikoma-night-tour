@@ -1,0 +1,375 @@
+#!/usr/bin/env python3
+"""Generates the static stop pages for the One Coin Night Tour app from data.
+Run: python3 build_stops.py
+"""
+import os
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+PUBLIC = os.path.join(ROOT, "public")
+
+HEAD = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title} — One Coin Night Tour</title>
+<link rel="stylesheet" href="{rel}shared/tour.css" />
+</head>
+<body>
+<div class="wrap">
+"""
+
+FOOT = """</div>
+<script src="{rel}access-guard.js"></script>
+</body>
+</html>
+"""
+
+def ascent_rail_svg(elevations, idx):
+    """elevations: list of (label, meters). idx: current stop index."""
+    w, h = 600, 64
+    n = len(elevations)
+    xs = [20 + i * (w - 40) / (n - 1) for i in range(n)]
+    lo = min(e for _, e in elevations)
+    hi = max(e for _, e in elevations)
+    span = max(hi - lo, 1)
+    ys = [h - 14 - (e - lo) / span * (h - 28) for _, e in elevations]
+
+    pts = " ".join(f"{x:.1f},{y:.1f}" for x, y in zip(xs, ys))
+    dots = []
+    for i, ((label, e), x, y) in enumerate(zip(elevations, xs, ys)):
+        if i == idx:
+            dots.append(
+                f'<circle cx="{x:.1f}" cy="{y:.1f}" r="5.5" fill="var(--lantern)">'
+                f'<animate attributeName="r" values="5.5;7.5;5.5" dur="2.2s" repeatCount="indefinite"/></circle>'
+                f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.2" fill="var(--sky-deep)"/>'
+            )
+        elif i < idx:
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2" fill="var(--lantern-dim)"/>')
+        else:
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3" fill="var(--line)"/>')
+    return f'''<div class="ascent-rail" aria-hidden="true">
+<svg viewBox="0 0 {w} {h}" preserveAspectRatio="none">
+<polyline points="{pts}" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+{''.join(dots)}
+<text x="20" y="14" class="rail-label">GROUND</text>
+<text x="{w-20}" y="14" class="rail-label" text-anchor="end">{int(hi)}M</text>
+</svg>
+</div>'''
+
+def dots_html(n, idx):
+    spans = []
+    for i in range(n):
+        cls = "active" if i == idx else ("done" if i < idx else "")
+        spans.append(f'<span class="{cls}"></span>')
+    return f'<div class="dots">{"".join(spans)}</div>'
+
+def photo_slot(caption):
+    return f'''<div class="photo-slot" data-slot="{caption}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-4 4-3-3-5 5"/></svg>
+PHOTO<br/>{caption}
+</div>'''
+
+def audio_slot(filename):
+    return f'''<div class="audio-slot">
+<div class="dot">♪</div>
+<div>AUDIO PENDING<br/>expects: shared/audio/{filename}</div>
+</div>
+<!-- once recorded, replace the block above with:
+<audio class="stop-audio" controls src="{{rel}}shared/audio/{filename}"></audio>
+-->'''
+
+def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_root="../"):
+    n = len(stops)
+    elevations = [(s["short"], s["elev"]) for s in stops]
+    out_dir = os.path.join(PUBLIC, route_dir)
+    os.makedirs(out_dir, exist_ok=True)
+
+    for i, s in enumerate(stops):
+        fname = f"stop{i+1:02d}.html"
+        prev_link = (f"stop{i:02d}.html" if i > 0 else "welcome.html")
+        next_link = (f"stop{i+2:02d}.html" if i < n - 1 else "../purchase/thankyou.html")
+        next_label = "Finish tour →" if i == n - 1 else "Next stop →"
+
+        body = HEAD.format(title=s["title"], rel=prev_root)
+        body += f'<div class="eyebrow">{route_tag_label} · Stop {i+1} of {n}</div>\n'
+        body += f'<h1 class="title">{s["title"]}</h1>\n'
+        if s.get("subtitle"):
+            body += f'<p class="subtitle">{s["subtitle"]}</p>\n'
+        body += ascent_rail_svg(elevations, i) + "\n"
+        body += dots_html(n, i) + "\n"
+        body += '<div class="card">\n'
+        body += s["content"]
+        body += '\n</div>\n'
+        if s.get("transit"):
+            body += f'<div class="transit"><div class="icon">TRANSIT</div><div class="txt">{s["transit"]}</div></div>\n'
+        body += '<div class="nav-row">\n'
+        body += f'<a class="nav-btn prev" href="{prev_link}">← Back</a>\n'
+        body += f'<a class="nav-btn next" href="{next_link}">{next_label}</a>\n'
+        body += '</div>\n'
+        body += FOOT.format(rel=prev_root)
+
+        with open(os.path.join(out_dir, fname), "w", encoding="utf-8") as f:
+            f.write(body)
+
+    # welcome page for this route
+    welcome = HEAD.format(title=f"{route_title} — Welcome", rel=prev_root)
+    welcome += f'<div class="eyebrow">{route_tag_label}</div>\n'
+    welcome += f'<h1 class="title">{route_title}</h1>\n'
+    welcome += '<div class="card">\n'
+    welcome += f'<p>{stops[0]["welcome_note"]}</p>\n'
+    welcome += '<h3>What to expect</h3>\n<ul>\n'
+    for s in stops:
+        welcome += f'<li>{s["short"]}</li>\n'
+    welcome += '</ul>\n</div>\n'
+    welcome += f'<a class="btn btn-primary" style="display:block;text-align:center" href="stop01.html">Begin the tour →</a>\n'
+    welcome += FOOT.format(rel=prev_root)
+    with open(os.path.join(out_dir, "welcome.html"), "w", encoding="utf-8") as f:
+        f.write(welcome)
+
+    print(f"Built {n} stops + welcome.html for {route_dir}/")
+
+
+# ---------------------------------------------------------------------------
+# MAIN ROUTE — 生駒山上遊園地ナイター営業日
+# ---------------------------------------------------------------------------
+main_stops = [
+    dict(
+        short="Ishikiri Station — meeting point",
+        elev=40,
+        title="Ishikiri Station",
+        subtitle="石切駅 · Kintetsu Nara Line",
+        welcome_note=(
+            "Tonight's route climbs, quite literally: from a shrine town at street level, "
+            "up a mountain by cable car, to a skyline deck 22 floors above the city. "
+            "Meet at Ishikiri Station and we'll begin."
+        ),
+        content=(
+            "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
+            "region's most visited shrine towns, known for centuries as a place people "
+            "come to pray for health and healing.</p>"
+            + photo_slot("Ishikiri Station exterior")
+            + audio_slot("main-01-ishikiri-station.mp3")
+            + '<div class="note"><strong>Getting here</strong>: take an Express, Semi-Express, '
+            "Sub-Express, or Local train on the Kintetsu Nara Line — the Rapid Express does "
+            "not stop at Ishikiri. If you're coming by subway instead, Shin-Ishikiri Station "
+            "(Chuo Line / Kintetsu Keihanna Line) is closer to the shrine, but note it sits on "
+            "a different fare zone, so an Osaka Metro day pass alone won't cover it.</div>"
+        ),
+    ),
+    dict(
+        short="Ishikiri Shrine & approach street",
+        elev=60,
+        title="Ishikiri Tsurugiya Shrine",
+        subtitle="石切劔箭神社 · \"Ishikiri-san\"",
+        welcome_note="",
+        content=(
+            "<p>Tradition holds this shrine was founded in the second year of Emperor Jinmu's "
+            "reign. Locals know it as <em>Denbo no Kamisama</em> — a place associated with "
+            "healing, especially freedom from illness. The grounds are open 24 hours.</p>"
+            "<p>Walk the approach street lined with fortune-telling shops — most are "
+            "Japanese-only, so a translation app helps if you want to try one; think of it as "
+            "an optional side-quest rather than the main event.</p>"
+            + photo_slot("Shrine main hall")
+            + photo_slot("Approach street shops")
+            + audio_slot("main-02-ishikiri-shrine.mp3")
+            + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
+            "lighting is ordinary street lighting after dark. We mention this so expectations "
+            "stay grounded; the shrine's atmosphere, not spectacle, is the draw.</div>"
+        ),
+    ),
+    dict(
+        short="Ride to Ikoma",
+        elev=70,
+        title="To Ikoma Station",
+        subtitle="石切駅 → 生駒駅 · Kintetsu Nara Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>Board any train back toward Nara-bound platforms — Ikoma is one stop away, "
+            "no transfer required.</p>"
+            + audio_slot("main-03-to-ikoma.mp3")
+        ),
+        transit="Ishikiri → Ikoma · Kintetsu Nara Line · 1 stop, no transfer",
+    ),
+    dict(
+        short="Ikoma Cable — ride the mountain",
+        elev=350,
+        title="Ikoma Cable",
+        subtitle="生駒ケーブル · Torii-mae → Hozan-ji → Ikomasanjo",
+        welcome_note="",
+        content=(
+            "<p>From Torii-mae Station beside Ikoma Station, the cable car climbs through "
+            "Hozan-ji on its way to the summit station. This is one of the oldest cable "
+            "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
+            + photo_slot("Cable car cabin")
+            + photo_slot("View during ascent")
+            + audio_slot("main-04-ikoma-cable.mp3")
+            + '<div class="note"><strong>Timing matters</strong>: departures after 18:00 run only '
+            "on days the mountaintop amusement park operates its night hours — that's the whole "
+            "reason tonight's route is possible. Confirm the current timetable before you go.</div>"
+        ),
+    ),
+    dict(
+        short="Ikomasanjo summit deck",
+        elev=642,
+        title="Ikomasanjo Amusement Park — Star Plaza",
+        subtitle="生駒山上遊園地・星の広場展望デッキ",
+        welcome_note="",
+        content=(
+            "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
+            "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
+            "basin below, tiny points of light against the dark.</p>"
+            + photo_slot("Star Plaza deck at night")
+            + photo_slot("Skyline from summit")
+            + audio_slot("main-05-summit-deck.mp3")
+        ),
+    ),
+    dict(
+        short="Dinner near Ikoma Station",
+        elev=100,
+        title="Dinner in Ikoma",
+        subtitle="生駒駅周辺で夕食",
+        welcome_note="",
+        content=(
+            "<p>Back down at Ikoma Station, take a break before the tour's final stop.</p>"
+            "<h3>A few options</h3>"
+            "<ul>"
+            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
+            "<li><strong>Nanko</strong> — izakaya near the station</li>"
+            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
+            "</ul>"
+            + photo_slot("Ikoma Station area at night")
+            + audio_slot("main-06-ikoma-dinner.mp3")
+        ),
+    ),
+    dict(
+        short="Ride to Arahon",
+        elev=20,
+        title="To Arahon Station",
+        subtitle="生駒駅 → 荒本駅 · Kintetsu Keihanna Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>One direct ride, about 10 minutes, and you're at the foot of the tour's "
+            "final stop.</p>"
+            + audio_slot("main-07-to-arahon.mp3")
+        ),
+        transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
+    ),
+    dict(
+        short="Higashiosaka City Hall observatory (finale)",
+        elev=90,
+        title="Higashiosaka City Hall Observatory",
+        subtitle="東大阪市役所22階展望ロビー · Tour finale",
+        welcome_note="",
+        content=(
+            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
+            "Heritage sites — this 22nd-floor lobby is where tonight's ascent ends. From here: "
+            "Abeno Harukas, Mt. Ikoma behind you, the Higashiosaka junction below, and on a "
+            "clear night, Awaji Island on the horizon.</p>"
+            + photo_slot("22F observatory view")
+            + photo_slot("City lights panorama")
+            + audio_slot("main-08-city-hall-finale.mp3")
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+        ),
+    ),
+]
+
+alt_stops = [
+    dict(
+        short="Ishikiri Station — meeting point",
+        elev=40,
+        title="Ishikiri Station",
+        subtitle="石切駅 · Kintetsu Nara Line",
+        welcome_note=(
+            "The mountaintop park is closed or off its night hours today, so tonight's ascent "
+            "trades the summit deck for more time at the shrine, then heads straight to the "
+            "skyline finale."
+        ),
+        content=(
+            "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
+            "region's most visited shrine towns, known for centuries as a place people "
+            "come to pray for health and healing.</p>"
+            + photo_slot("Ishikiri Station exterior")
+            + audio_slot("alt-01-ishikiri-station.mp3")
+        ),
+    ),
+    dict(
+        short="Kamisha (Upper Shrine)",
+        elev=65,
+        title="Kamisha — the Upper Shrine",
+        subtitle="石切劔箭神社 上之社",
+        welcome_note="",
+        content=(
+            "<p>A quieter, elevated companion to the main shrine, about 7 minutes on foot from "
+            "the station. Visiting Kamisha before the main hall is the recommended order.</p>"
+            + photo_slot("Kamisha grounds")
+            + audio_slot("alt-02-kamisha.mp3")
+        ),
+    ),
+    dict(
+        short="Shimosha & approach street",
+        elev=55,
+        title="Shimosha & the Approach Street",
+        subtitle="石切劔箭神社 下之社・参道商店街",
+        welcome_note="",
+        content=(
+            "<p>The main hall and its inner sanctuary, followed by the approach street's rows "
+            "of fortune-telling shops — most Japanese-only, so treat it as an optional detour "
+            "rather than the main event.</p>"
+            + photo_slot("Shimosha main hall")
+            + photo_slot("Approach street at night")
+            + audio_slot("alt-03-shimosha.mp3")
+        ),
+    ),
+    dict(
+        short="Dinner near Ikoma Station",
+        elev=100,
+        title="Dinner in Ikoma",
+        subtitle="生駒駅周辺で夕食",
+        welcome_note="",
+        content=(
+            "<h3>A few options</h3>"
+            "<ul>"
+            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
+            "<li><strong>Nanko</strong> — izakaya near the station</li>"
+            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
+            "</ul>"
+            + photo_slot("Ikoma Station area at night")
+            + audio_slot("alt-04-ikoma-dinner.mp3")
+        ),
+    ),
+    dict(
+        short="Ride to Arahon",
+        elev=20,
+        title="To Arahon Station",
+        subtitle="生駒駅 → 荒本駅 · Kintetsu Keihanna Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>One direct ride, about 10 minutes, to the tour's final stop.</p>"
+            + audio_slot("alt-05-to-arahon.mp3")
+        ),
+        transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
+    ),
+    dict(
+        short="Higashiosaka City Hall observatory (finale)",
+        elev=90,
+        title="Higashiosaka City Hall Observatory",
+        subtitle="東大阪市役所22階展望ロビー · Tour finale",
+        welcome_note="",
+        content=(
+            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
+            "Heritage sites. From the 22nd floor: Abeno Harukas, Mt. Ikoma, the Higashiosaka "
+            "junction below, and on a clear night, Awaji Island on the horizon.</p>"
+            + photo_slot("22F observatory view")
+            + photo_slot("City lights panorama")
+            + audio_slot("alt-06-city-hall-finale.mp3")
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+        ),
+    ),
+]
+
+build_route("main", "route-main", "Sacred Sites & Skyline Views", "MAIN ROUTE", main_stops)
+build_route("alt", "route-alt", "Sacred Sites & Skyline Views (Alt.)", "ALT ROUTE", alt_stops)
+print("Done.")
