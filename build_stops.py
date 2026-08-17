@@ -131,7 +131,7 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
 
 
 # ---------------------------------------------------------------------------
-# MAIN ROUTE — 生駒山上遊園地ナイター営業日
+# MAIN ROUTE — 生駒山上遊園地ナイター営業日 (9 stops)
 # ---------------------------------------------------------------------------
 main_stops = [
     dict(
@@ -141,8 +141,8 @@ main_stops = [
         subtitle="石切駅 · Kintetsu Nara Line",
         welcome_note=(
             "Tonight's route climbs, quite literally: from a shrine town at street level, "
-            "up a mountain by cable car, to a skyline deck 22 floors above the city. "
-            "Meet at Ishikiri Station and we'll begin."
+            "up a mountain by cable car, to a skyline deck 22 floors above the city. Six "
+            "stops, each worth lingering in — meet at Ishikiri Station and we'll begin."
         ),
         content=(
             "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
@@ -158,7 +158,35 @@ main_stops = [
         ),
     ),
     dict(
-        short="Ishikiri Shrine & approach street",
+        short="Ishikiri Approach Street — fortune tellers & locals",
+        elev=50,
+        title="The Approach Street",
+        subtitle="石切参道商店街 · A street built for slowing down",
+        welcome_note="",
+        content=(
+            "<p>This narrow, sloped street is lined with more fortune-telling shops per block "
+            "than almost anywhere else in Japan — palm reading, face reading, name divination, "
+            "and a dozen other traditions, packed into shopfronts that have barely changed in "
+            "decades. Most visitors just walk through. We'd rather you didn't.</p>"
+            "<p>Here's the thing about this street: it isn't really a tourist attraction. It's "
+            "where Osaka locals come, on ordinary weeknights, for an honest answer about "
+            "something on their mind. Which means it's one of the very few places on this "
+            "entire tour where you're not just looking at Japan — you're standing in the middle "
+            "of it, next to people who came here for their own reasons.</p>"
+            + photo_slot("Approach street shopfronts")
+            + photo_slot("Fortune-telling shop signage")
+            + audio_slot("main-02-approach-street.mp3")
+            + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
+            "Japanese-only, so bring a translation app, or just point, smile, and see what "
+            "happens; plenty of shopkeepers are happy to work it out with a curious visitor. "
+            "Not in the mood? Skip straight past — there's no schedule pressure here, this "
+            "whole stop is exactly as long as you want it to be.</div>"
+            '<div class="note"><strong>Small confession</strong>: the person who built this '
+            "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
+        ),
+    ),
+    dict(
+        short="Ishikiri Tsurugiya Shrine",
         elev=60,
         title="Ishikiri Tsurugiya Shrine",
         subtitle="石切劔箭神社 · \"Ishikiri-san\"",
@@ -167,12 +195,19 @@ main_stops = [
             "<p>Tradition holds this shrine was founded in the second year of Emperor Jinmu's "
             "reign. Locals know it as <em>Denbo no Kamisama</em> — a place associated with "
             "healing, especially freedom from illness. The grounds are open 24 hours.</p>"
-            "<p>Walk the approach street lined with fortune-telling shops — most are "
-            "Japanese-only, so a translation app helps if you want to try one; think of it as "
-            "an optional side-quest rather than the main event.</p>"
+            "<p>Its best-known reputation is for <em>gan-fuji</em> — warding off cancer — "
+            "alongside illness more broadly. This is a matter of centuries-old belief and "
+            "tradition, not medical claim: many visitors come specifically to pray for "
+            "themselves or a family member facing serious illness, and that quiet sense of "
+            "purpose is part of what makes the atmosphere here different from an ordinary "
+            "sightseeing stop.</p>"
+            "<p>Look for visitors circling the approach to the main hall in slow, repeated "
+            "laps — that's <em>ohyakudo mairi</em>, \"the hundred-times pilgrimage,\" one of "
+            "the shrine's oldest and most visible customs, and something you'll see almost "
+            "nowhere else on this scale.</p>"
             + photo_slot("Shrine main hall")
-            + photo_slot("Approach street shops")
-            + audio_slot("main-02-ishikiri-shrine.mp3")
+            + photo_slot("Ohyakudo mairi path")
+            + audio_slot("main-03-ishikiri-shrine.mp3")
             + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
             "lighting is ordinary street lighting after dark. We mention this so expectations "
             "stay grounded; the shrine's atmosphere, not spectacle, is the draw.</div>"
@@ -187,7 +222,7 @@ main_stops = [
         content=(
             "<p>Board any train back toward Nara-bound platforms — Ikoma is one stop away, "
             "no transfer required.</p>"
-            + audio_slot("main-03-to-ikoma.mp3")
+            + audio_slot("main-04-to-ikoma.mp3")
         ),
         transit="Ishikiri → Ikoma · Kintetsu Nara Line · 1 stop, no transfer",
     ),
@@ -203,7 +238,7 @@ main_stops = [
             "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
             + photo_slot("Cable car cabin")
             + photo_slot("View during ascent")
-            + audio_slot("main-04-ikoma-cable.mp3")
+            + audio_slot("main-05-ikoma-cable.mp3")
             + '<div class="note"><strong>Timing matters</strong>: departures after 18:00 run only '
             "on days the mountaintop amusement park operates its night hours — that's the whole "
             "reason tonight's route is possible. Confirm the current timetable before you go.</div>"
@@ -221,7 +256,7 @@ main_stops = [
             "basin below, tiny points of light against the dark.</p>"
             + photo_slot("Star Plaza deck at night")
             + photo_slot("Skyline from summit")
-            + audio_slot("main-05-summit-deck.mp3")
+            + audio_slot("main-06-summit-deck.mp3")
         ),
     ),
     dict(
@@ -239,7 +274,7 @@ main_stops = [
             "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
             "</ul>"
             + photo_slot("Ikoma Station area at night")
-            + audio_slot("main-06-ikoma-dinner.mp3")
+            + audio_slot("main-07-ikoma-dinner.mp3")
         ),
     ),
     dict(
@@ -251,7 +286,7 @@ main_stops = [
         content=(
             "<p>One direct ride, about 10 minutes, and you're at the foot of the tour's "
             "final stop.</p>"
-            + audio_slot("main-07-to-arahon.mp3")
+            + audio_slot("main-08-to-arahon.mp3")
         ),
         transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -268,13 +303,16 @@ main_stops = [
             "clear night, Awaji Island on the horizon.</p>"
             + photo_slot("22F observatory view")
             + photo_slot("City lights panorama")
-            + audio_slot("main-08-city-hall-finale.mp3")
+            + audio_slot("main-09-city-hall-finale.mp3")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
         ),
     ),
 ]
 
+# ---------------------------------------------------------------------------
+# ALTERNATE ROUTE — Ikomasanjo closed / day-hours only (7 stops)
+# ---------------------------------------------------------------------------
 alt_stops = [
     dict(
         short="Ishikiri Station — meeting point",
@@ -283,8 +321,8 @@ alt_stops = [
         subtitle="石切駅 · Kintetsu Nara Line",
         welcome_note=(
             "The mountaintop park is closed or off its night hours today, so tonight's ascent "
-            "trades the summit deck for more time at the shrine, then heads straight to the "
-            "skyline finale."
+            "trades the summit deck for more time at the shrine and its street, then heads "
+            "straight to the skyline finale."
         ),
         content=(
             "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
@@ -292,6 +330,28 @@ alt_stops = [
             "come to pray for health and healing.</p>"
             + photo_slot("Ishikiri Station exterior")
             + audio_slot("alt-01-ishikiri-station.mp3")
+        ),
+    ),
+    dict(
+        short="Ishikiri Approach Street — fortune tellers & locals",
+        elev=50,
+        title="The Approach Street",
+        subtitle="石切参道商店街 · A street built for slowing down",
+        welcome_note="",
+        content=(
+            "<p>This narrow, sloped street is lined with more fortune-telling shops per block "
+            "than almost anywhere else in Japan. Most visitors just walk through — but this "
+            "isn't really a tourist attraction, it's where Osaka locals come on ordinary "
+            "weeknights for an honest answer about something on their mind. Standing here, "
+            "you're not just looking at Japan, you're in the middle of it.</p>"
+            + photo_slot("Approach street shopfronts")
+            + photo_slot("Fortune-telling shop signage")
+            + audio_slot("alt-02-approach-street.mp3")
+            + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
+            "Japanese-only, so bring a translation app, or just point, smile, and see what "
+            "happens. Not in the mood? Skip past — this stop is exactly as long as you want.</div>"
+            '<div class="note"><strong>Small confession</strong>: the person who built this '
+            "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
         ),
     ),
     dict(
@@ -304,22 +364,21 @@ alt_stops = [
             "<p>A quieter, elevated companion to the main shrine, about 7 minutes on foot from "
             "the station. Visiting Kamisha before the main hall is the recommended order.</p>"
             + photo_slot("Kamisha grounds")
-            + audio_slot("alt-02-kamisha.mp3")
+            + audio_slot("alt-03-kamisha.mp3")
         ),
     ),
     dict(
-        short="Shimosha & approach street",
+        short="Shimosha (Main Hall)",
         elev=55,
-        title="Shimosha & the Approach Street",
-        subtitle="石切劔箭神社 下之社・参道商店街",
+        title="Shimosha — the Main Hall",
+        subtitle="石切劔箭神社 下之社",
         welcome_note="",
         content=(
-            "<p>The main hall and its inner sanctuary, followed by the approach street's rows "
-            "of fortune-telling shops — most Japanese-only, so treat it as an optional detour "
-            "rather than the main event.</p>"
+            "<p>The main hall and its inner sanctuary. Look for visitors circling the approach "
+            "in slow, repeated laps — that's <em>ohyakudo mairi</em>, \"the hundred-times "
+            "pilgrimage,\" one of the shrine's oldest and most visible customs.</p>"
             + photo_slot("Shimosha main hall")
-            + photo_slot("Approach street at night")
-            + audio_slot("alt-03-shimosha.mp3")
+            + audio_slot("alt-04-shimosha.mp3")
         ),
     ),
     dict(
@@ -336,7 +395,7 @@ alt_stops = [
             "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
             "</ul>"
             + photo_slot("Ikoma Station area at night")
-            + audio_slot("alt-04-ikoma-dinner.mp3")
+            + audio_slot("alt-05-ikoma-dinner.mp3")
         ),
     ),
     dict(
@@ -347,7 +406,7 @@ alt_stops = [
         welcome_note="",
         content=(
             "<p>One direct ride, about 10 minutes, to the tour's final stop.</p>"
-            + audio_slot("alt-05-to-arahon.mp3")
+            + audio_slot("alt-06-to-arahon.mp3")
         ),
         transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -363,7 +422,7 @@ alt_stops = [
             "junction below, and on a clear night, Awaji Island on the horizon.</p>"
             + photo_slot("22F observatory view")
             + photo_slot("City lights panorama")
-            + audio_slot("alt-06-city-hall-finale.mp3")
+            + audio_slot("alt-07-city-hall-finale.mp3")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
         ),
