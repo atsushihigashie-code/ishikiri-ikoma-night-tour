@@ -28,42 +28,64 @@
 </div>
 
 <script>
+  /* Firebase Realtime Database wiring is below — see DATABASE_URL and
+     verifyCode(). This project uses its own Firebase project, separate from
+     the Osaka Castle Tour's. */
+
   /**
-   * TODO(firebase): wire this up to the same pattern as the Osaka Castle Tour
-   * app — a Firebase Realtime Database lookup of purchased access codes,
-   * marking them used/valid. This project uses its own, separate Firebase
-   * project (kept isolated from the Osaka Castle Tour's), so the config
-   * below needs to be filled in once that project exists.
-   *
-   * const firebaseConfig = {
-   *   apiKey: "...", authDomain: "...", databaseURL: "...", projectId: "...",
-   * };
+   * Access code verification against this project's Firebase Realtime
+   * Database. Each code allows up to 3 uses (matching the Osaka Castle Tour
+   * pattern of sharing one code across a small group). Database structure:
+   *   accessCodes/<CODE>/maxUses  (number, set when the code is issued)
+   *   accessCodes/<CODE>/uses     (number, starts at 0, incremented on each
+   *                                successful unlock)
    */
+  var DATABASE_URL = "https://ishikiri-ikoma-night-tour-default-rtdb.asia-southeast1.firebasedatabase.app";
 
   var params = new URLSearchParams(window.location.search);
   var nextPage = params.get("next") || "route-select.html";
 
-  // TEMPORARY preview code so the flow is testable before Firebase is wired up.
-  // Remove this before launch.
-  var PREVIEW_CODES = ["PREVIEW2026"];
+  async function verifyCode(rawCode) {
+    var code = rawCode.trim().toUpperCase();
+    if (!code) return { ok: false, reason: "empty" };
 
-  async function verifyCode(code) {
-    // TODO(firebase): replace with a real lookup, e.g.
-    //   const res = await fetch(databaseURL + "/accessCodes/" + code + ".json");
-    //   const data = await res.json();
-    //   return !!(data && data.valid);
-    return PREVIEW_CODES.includes(code.trim().toUpperCase());
+    var res = await fetch(DATABASE_URL + "/accessCodes/" + encodeURIComponent(code) + ".json");
+    var data = await res.json();
+
+    if (!data) return { ok: false, reason: "not_found" };
+
+    var maxUses = typeof data.maxUses === "number" ? data.maxUses : 0;
+    var uses = typeof data.uses === "number" ? data.uses : 0;
+
+    if (uses >= maxUses) return { ok: false, reason: "exhausted" };
+
+    // Attempt to claim one use. The database rules only accept this write if
+    // it's exactly (current uses + 1) and stays within maxUses, so a race
+    // between two people redeeming the same code near its limit fails safely
+    // rather than over-granting access.
+    var writeRes = await fetch(
+      DATABASE_URL + "/accessCodes/" + encodeURIComponent(code) + "/uses.json",
+      { method: "PUT", body: JSON.stringify(uses + 1) }
+    );
+    if (!writeRes.ok) return { ok: false, reason: "exhausted" };
+
+    return { ok: true };
   }
 
   document.getElementById("submitBtn").addEventListener("click", async function () {
     var code = document.getElementById("codeInput").value;
     var errorEl = document.getElementById("errorMsg");
-    var ok = await verifyCode(code);
-    if (ok) {
+    var result = await verifyCode(code);
+    if (result.ok) {
       sessionStorage.setItem("nightTourAccessGranted", "true");
       window.location.href = nextPage;
     } else {
-      errorEl.textContent = "That code didn't match. Check for typos, or purchase a code below.";
+      var messages = {
+        empty: "Enter your access code first.",
+        not_found: "That code didn't match. Check for typos, or purchase a code below.",
+        exhausted: "This code has already been used its full number of times."
+      };
+      errorEl.textContent = messages[result.reason] || "Something went wrong — try again.";
       errorEl.style.display = "block";
     }
   });
