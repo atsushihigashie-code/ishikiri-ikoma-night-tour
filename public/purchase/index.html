@@ -17,24 +17,12 @@
     <div class="note"><strong>Save your code</strong> — write it down or take a screenshot. If you close this tab before doing so, it can't be recovered without the automatic email delivery step (see TODO below).</div>
   </div>
 
-  <!--
-    TODO(stripe): create a new Payment Link in the East River 31 Stripe
-    account — a *separate* link from the Osaka Castle Tour's, so this
-    product's sales/reporting stay isolated. Point its success URL at
-    purchase/thankyou.html (or a dedicated code-issuing success page,
-    mirroring the Osaka Castle Tour's verify-purchase.js pattern once this
-    project's own Firebase project exists).
-  -->
-  <a class="btn btn-primary" style="display:block;text-align:center;" href="#" id="buyBtn">Pay ¥500 with Stripe</a>
+  <!-- Stripe Payment Link for this product (separate from the Osaka Castle
+       Tour's link). Success URL is configured on the link itself to redirect
+       to purchase/success.html?session_id={CHECKOUT_SESSION_ID}. -->
+  <a class="btn btn-primary" style="display:block;text-align:center;" href="https://buy.stripe.com/5kQ28q6RV9ajbwAf2BcAo01">Pay ¥500 with Stripe</a>
 
   <div class="footer-note">EAST RIVER 31 LLC</div>
 </div>
-<script>
-  // TODO(stripe): replace with the real Payment Link URL once created.
-  document.getElementById("buyBtn").addEventListener("click", function (e) {
-    e.preventDefault();
-    alert("Stripe payment link not yet configured — see TODO in this page's source.");
-  });
-</script>
 </body>
 </html>

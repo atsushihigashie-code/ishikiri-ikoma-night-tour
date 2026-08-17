@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment confirmed — One Coin Night Tour</title>
+<link rel="stylesheet" href="../shared/tour.css" />
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Payment confirmed</div>
+  <h1 class="title">Here's your access code</h1>
+  <div class="card" id="resultCard">
+    <p>Confirming your payment…</p>
+  </div>
+  <a class="btn btn-primary" style="display:block;text-align:center;" href="../gate.html">Enter your code →</a>
+  <div class="footer-note">EAST RIVER 31 LLC</div>
+</div>
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var sessionId = params.get("session_id");
+  var card = document.getElementById("resultCard");
+
+  if (!sessionId) {
+    card.innerHTML = "<p>No payment session found. If you just paid, check your email receipt or contact support.</p>";
+  } else {
+    fetch("/api/verify-purchase?session_id=" + encodeURIComponent(sessionId))
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.code) {
+          card.innerHTML =
+            '<p style="font-family:var(--mono);font-size:24px;letter-spacing:.1em;color:var(--lantern);margin-bottom:14px;">' +
+            data.code +
+            "</p>" +
+            '<div class="note"><strong>Save this code</strong> — write it down or take a screenshot. It works for up to ' +
+            data.maxUses + " people.</div>";
+        } else {
+          card.innerHTML = "<p>" + (data.error || "Something went wrong confirming your payment.") + " If you were charged, please contact support with your receipt.</p>";
+        }
+      })
+      .catch(function () {
+        card.innerHTML = "<p>Something went wrong. If you were charged, please contact support with your payment receipt.</p>";
+      });
+  }
+</script>
+</body>
+</html>
