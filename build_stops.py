@@ -154,7 +154,7 @@ main_stops = [
             "Tonight's route climbs, quite literally: from a city-hall skyline view, up a "
             "mountain by cable car, then back down to a shrine town where the night ends "
             "slowly. Nine stops, each worth lingering in — meet at Arahon Station around "
-            "18:00 (autumn season) and we'll begin."
+            "17:00 (autumn season) and we'll begin."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
@@ -364,7 +364,7 @@ alt_stops = [
             "The mountaintop park is closed or off its night hours today, so tonight's route "
             "trades the summit deck for more time at the shrine and its street, opening with "
             "the skyline view and closing with a slower, quieter finale in Ishikiri. Meet at "
-            "Arahon Station around 18:00 (autumn season)."
+            "Arahon Station around 17:00 (autumn season)."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
