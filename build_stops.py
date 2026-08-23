@@ -268,6 +268,14 @@ main_stops = [
             + photo_img("ikomasanjo-foodstalls.jpg", "Food stalls at Ikomasanjo at night")
             + photo_img("ikomasanjo-rides-lights.jpg", "Illuminated rides and lights at Ikomasanjo")
             + external_link("https://www.ikomasanjou.com/images/map_en.pdf", "Park Map (English, PDF)")
+            + '<div class="note"><strong>Eating inside the park</strong>: there is also a '
+            "restaurant here with an English menu, ordered from a ticket machine. Cold udon "
+            "runs ¥800–900, lunch plates ¥1,400–1,800, and kids plates ¥900–1,000. Handy if "
+            "you'd rather eat with the view than wait until Ikoma Station.</div>"
+            + photo_img("ikoma-dinner-menu1.jpg", "Ikomasanjo restaurant ticket machine — cold udon menu")
+            + photo_img("ikoma-dinner-menu2.jpg", "Ikomasanjo restaurant ticket machine — lunch plates")
+            + photo_img("ikoma-dinner-menu3.jpg", "Ikomasanjo restaurant ticket machine — more lunch plates")
+            + photo_img("ikoma-dinner-menu4.jpg", "Ikomasanjo restaurant ticket machine — kids plates")
         ),
     ),
     dict(
