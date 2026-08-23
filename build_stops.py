@@ -203,6 +203,13 @@ main_stops = [
         content=(
             "<p>One direct ride, about 10 minutes, toward the base of the cable car.</p>"
             + audio_slot("main-03-to-ikoma.mp3")
+            + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
+            "near Ikoma Station, but on the walk back from City Hall to Arahon Station you'll "
+            "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
+            "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
+            "Entirely optional.</div>"
+            + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
+            + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
         ),
         transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -390,6 +397,13 @@ alt_stops = [
         content=(
             "<p>One direct ride, about 10 minutes, toward dinner.</p>"
             + audio_slot("alt-03-to-ikoma.mp3")
+            + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
+            "near Ikoma Station, but on the walk back from City Hall to Arahon Station you'll "
+            "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
+            "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
+            "Entirely optional.</div>"
+            + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
+            + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
         ),
         transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
