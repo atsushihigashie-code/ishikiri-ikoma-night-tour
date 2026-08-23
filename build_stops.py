@@ -165,6 +165,9 @@ main_stops = [
             + '<div class="note"><strong>Getting here</strong>: Arahon is served by both the '
             "Kintetsu Keihanna Line and the Osaka Metro Chuo Line (through-running services) — "
             "check which fare applies to your ticket or IC card before boarding.</div>"
+            + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
+            "7-minute walk from the station. The east entrance is closed, so enter from the "
+            "north side.</div>"
         ),
     ),
     dict(
@@ -186,6 +189,9 @@ main_stops = [
             + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+            + '<div class="note"><strong>Finding the elevator</strong>: once inside from the '
+            "north entrance, turn left and look for Elevator No. 8 — it goes straight up to "
+            "the 22nd floor.</div>"
         ),
     ),
     dict(
@@ -347,6 +353,9 @@ alt_stops = [
             "one of the region's best free night views.</p>"
             + photo_slot("Arahon Station exterior")
             + audio_slot("alt-01-arahon-station.mp3")
+            + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
+            "7-minute walk from the station. The east entrance is closed, so enter from the "
+            "north side.</div>"
         ),
     ),
     dict(
@@ -367,6 +376,9 @@ alt_stops = [
             + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+            + '<div class="note"><strong>Finding the elevator</strong>: once inside from the '
+            "north entrance, turn left and look for Elevator No. 8 — it goes straight up to "
+            "the 22nd floor.</div>"
         ),
     ),
     dict(
