@@ -29,7 +29,13 @@
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
-  background: radial-gradient(ellipse at 50% -10%, #1a2044 0%, var(--sky-deep) 45%, var(--sky-shadow) 100%);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(26,32,68,0.88) 0%, rgba(11,14,33,0.94) 45%, rgba(5,6,15,0.97) 100%),
+    url('photos/cityhall-view1.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--moonlight);
   font-family: var(--body);
   min-height:100vh;
@@ -205,15 +211,23 @@ h1.title{
 
 .map-link{
   display:flex; align-items:center; gap:8px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(242,166,90,0.45);
+  background: linear-gradient(135deg, rgba(242,166,90,0.16), rgba(193,68,14,0.08));
   border-radius: 10px;
-  padding: 10px 14px;
+  padding: 12px 16px;
   margin-top: 10px;
-  color: inherit;
+  color: var(--lantern);
   text-decoration: none;
-  font-size: 0.9em;
+  font-size: 0.92em;
+  font-weight: 500;
+  box-shadow: 0 0 16px rgba(242,166,90,0.12);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
-.map-link svg{ width:18px; height:18px; flex-shrink:0; }
+.map-link:hover{
+  background: linear-gradient(135deg, rgba(242,166,90,0.26), rgba(193,68,14,0.14));
+  box-shadow: 0 0 22px rgba(242,166,90,0.22);
+}
+.map-link svg{ width:18px; height:18px; flex-shrink:0; color: var(--lantern); }
 
 .audio-slot{
   display:flex; align-items:center; gap:12px;
