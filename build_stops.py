@@ -135,27 +135,122 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
 # ---------------------------------------------------------------------------
 main_stops = [
     dict(
-        short="Ishikiri Station — meeting point",
-        elev=40,
-        title="Ishikiri Station",
-        subtitle="石切駅 · Kintetsu Nara Line",
+        short="Arahon Station — meeting point",
+        elev=20,
+        title="Arahon Station",
+        subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
-            "Tonight's route climbs, quite literally: from a shrine town at street level, "
-            "up a mountain by cable car, to a skyline deck 22 floors above the city. Six "
-            "stops, each worth lingering in — meet at Ishikiri Station and we'll begin."
+            "Tonight's route climbs, quite literally: from a city-hall skyline view, up a "
+            "mountain by cable car, then back down to a shrine town where the night ends "
+            "slowly. Nine stops, each worth lingering in — meet at Arahon Station around "
+            "18:00 (autumn season) and we'll begin."
         ),
         content=(
-            "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
-            "region's most visited shrine towns, known for centuries as a place people "
-            "come to pray for health and healing.</p>"
-            + photo_slot("Ishikiri Station exterior")
-            + audio_slot("main-01-ishikiri-station.mp3")
-            + '<div class="note"><strong>Getting here</strong>: take an Express, Semi-Express, '
-            "Sub-Express, or Local train on the Kintetsu Nara Line — the Rapid Express does "
-            "not stop at Ishikiri. If you're coming by subway instead, Shin-Ishikiri Station "
-            "(Chuo Line / Kintetsu Keihanna Line) is closer to the shrine, but note it sits on "
-            "a different fare zone, so an Osaka Metro day pass alone won't cover it.</div>"
+            "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
+            "one of the region's best free night views. From here the evening climbs toward "
+            "Mt. Ikoma, then eases back down into the old shrine town of Ishikiri.</p>"
+            + photo_slot("Arahon Station exterior")
+            + audio_slot("main-01-arahon-station.mp3")
+            + '<div class="note"><strong>Getting here</strong>: Arahon is served by both the '
+            "Kintetsu Keihanna Line and the Osaka Metro Chuo Line (through-running services) — "
+            "check which fare applies to your ticket or IC card before boarding.</div>"
         ),
+    ),
+    dict(
+        short="Higashiosaka City Hall observatory",
+        elev=90,
+        title="Higashiosaka City Hall Observatory",
+        subtitle="東大阪市役所22階展望ロビー · Tonight's opening view",
+        welcome_note="",
+        content=(
+            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
+            "Heritage sites — this 22nd-floor lobby is where tonight's ascent begins. From "
+            "here: Abeno Harukas, Mt. Ikoma ahead of you, the Higashiosaka junction below, "
+            "and on a clear night, Awaji Island on the horizon.</p>"
+            + photo_slot("22F observatory view")
+            + photo_slot("City lights panorama")
+            + audio_slot("main-02-city-hall.mp3")
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+        ),
+    ),
+    dict(
+        short="Ride to Ikoma",
+        elev=70,
+        title="To Ikoma Station",
+        subtitle="荒本駅 → 生駒駅 · Kintetsu Keihanna Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>One direct ride, about 10 minutes, toward the base of the cable car.</p>"
+            + audio_slot("main-03-to-ikoma.mp3")
+        ),
+        transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
+    ),
+    dict(
+        short="Ikoma Cable — ride the mountain",
+        elev=350,
+        title="Ikoma Cable",
+        subtitle="生駒ケーブル · Torii-mae → Hozan-ji → Ikomasanjo",
+        welcome_note="",
+        content=(
+            "<p>From Torii-mae Station beside Ikoma Station, the cable car climbs through "
+            "Hozan-ji on its way to the summit station. This is one of the oldest cable "
+            "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
+            + photo_slot("Cable car cabin")
+            + photo_slot("View during ascent")
+            + audio_slot("main-04-ikoma-cable.mp3")
+            + '<div class="note"><strong>Timing matters</strong>: departures after 18:00 run only '
+            "on days the mountaintop amusement park operates its night hours — that's the whole "
+            "reason tonight's route is possible. Confirm the current timetable before you go.</div>"
+        ),
+    ),
+    dict(
+        short="Ikomasanjo summit deck",
+        elev=642,
+        title="Ikomasanjo Amusement Park — Star Plaza",
+        subtitle="生駒山上遊園地・星の広場展望デッキ",
+        welcome_note="",
+        content=(
+            "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
+            "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
+            "basin below, tiny points of light against the dark. This is tonight's high "
+            "point — literally and otherwise.</p>"
+            + photo_slot("Star Plaza deck at night")
+            + photo_slot("Skyline from summit")
+            + audio_slot("main-05-summit-deck.mp3")
+        ),
+    ),
+    dict(
+        short="Dinner near Ikoma Station",
+        elev=100,
+        title="Dinner in Ikoma",
+        subtitle="生駒駅周辺で夕食",
+        welcome_note="",
+        content=(
+            "<p>Back down at Ikoma Station, settle in for dinner before the tour's final "
+            "stretch — the quiet descent into Ishikiri.</p>"
+            "<h3>A few options</h3>"
+            "<ul>"
+            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
+            "<li><strong>Nanko</strong> — izakaya near the station</li>"
+            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
+            "</ul>"
+            + photo_slot("Ikoma Station area at night")
+            + audio_slot("main-06-ikoma-dinner.mp3")
+        ),
+    ),
+    dict(
+        short="Ride to Ishikiri",
+        elev=40,
+        title="To Ishikiri Station",
+        subtitle="生駒駅 → 石切駅 · Kintetsu Nara Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
+            "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            + audio_slot("main-07-to-ishikiri.mp3")
+        ),
+        transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
     ),
     dict(
         short="Ishikiri Approach Street — fortune tellers & locals",
@@ -175,26 +270,28 @@ main_stops = [
             "of it, next to people who came here for their own reasons.</p>"
             + photo_slot("Approach street shopfronts")
             + photo_slot("Fortune-telling shop signage")
-            + audio_slot("main-02-approach-street.mp3")
+            + audio_slot("main-08-approach-street.mp3")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
             "happens; plenty of shopkeepers are happy to work it out with a curious visitor. "
             "Not in the mood? Skip straight past — there's no schedule pressure here, this "
-            "whole stop is exactly as long as you want it to be.</div>"
+            "whole stop is exactly as long as you want it to be. Fortune-telling here is paid "
+            "directly to the shop, separate from the tour price.</div>"
             '<div class="note"><strong>Small confession</strong>: the person who built this '
             "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
         ),
     ),
     dict(
-        short="Ishikiri Tsurugiya Shrine",
+        short="Ishikiri Tsurugiya Shrine (finale)",
         elev=60,
         title="Ishikiri Tsurugiya Shrine",
-        subtitle="石切劔箭神社 · \"Ishikiri-san\"",
+        subtitle="石切劔箭神社 · \"Ishikiri-san\" · Tour finale",
         welcome_note="",
         content=(
             "<p>Tradition holds this shrine was founded in the second year of Emperor Jinmu's "
             "reign. Locals know it as <em>Denbo no Kamisama</em> — a place associated with "
-            "healing, especially freedom from illness. The grounds are open 24 hours.</p>"
+            "healing, especially freedom from illness. The grounds are open 24 hours, and "
+            "this is where tonight's route quietly comes to rest.</p>"
             "<p>Its best-known reputation is for <em>gan-fuji</em> — warding off cancer — "
             "alongside illness more broadly. This is a matter of centuries-old belief and "
             "tradition, not medical claim: many visitors come specifically to pray for "
@@ -207,105 +304,11 @@ main_stops = [
             "nowhere else on this scale.</p>"
             + photo_slot("Shrine main hall")
             + photo_slot("Ohyakudo mairi path")
-            + audio_slot("main-03-ishikiri-shrine.mp3")
+            + audio_slot("main-09-ishikiri-shrine.mp3")
             + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
             "lighting is ordinary street lighting after dark. We mention this so expectations "
-            "stay grounded; the shrine's atmosphere, not spectacle, is the draw.</div>"
-        ),
-    ),
-    dict(
-        short="Ride to Ikoma",
-        elev=70,
-        title="To Ikoma Station",
-        subtitle="石切駅 → 生駒駅 · Kintetsu Nara Line, no transfer",
-        welcome_note="",
-        content=(
-            "<p>Board any train back toward Nara-bound platforms — Ikoma is one stop away, "
-            "no transfer required.</p>"
-            + audio_slot("main-04-to-ikoma.mp3")
-        ),
-        transit="Ishikiri → Ikoma · Kintetsu Nara Line · 1 stop, no transfer",
-    ),
-    dict(
-        short="Ikoma Cable — ride the mountain",
-        elev=350,
-        title="Ikoma Cable",
-        subtitle="生駒ケーブル · Torii-mae → Hozan-ji → Ikomasanjo",
-        welcome_note="",
-        content=(
-            "<p>From Torii-mae Station beside Ikoma Station, the cable car climbs through "
-            "Hozan-ji on its way to the summit station. This is one of the oldest cable "
-            "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
-            + photo_slot("Cable car cabin")
-            + photo_slot("View during ascent")
-            + audio_slot("main-05-ikoma-cable.mp3")
-            + '<div class="note"><strong>Timing matters</strong>: departures after 18:00 run only '
-            "on days the mountaintop amusement park operates its night hours — that's the whole "
-            "reason tonight's route is possible. Confirm the current timetable before you go.</div>"
-        ),
-    ),
-    dict(
-        short="Ikomasanjo summit deck",
-        elev=642,
-        title="Ikomasanjo Amusement Park — Star Plaza",
-        subtitle="生駒山上遊園地・星の広場展望デッキ",
-        welcome_note="",
-        content=(
-            "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
-            "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
-            "basin below, tiny points of light against the dark.</p>"
-            + photo_slot("Star Plaza deck at night")
-            + photo_slot("Skyline from summit")
-            + audio_slot("main-06-summit-deck.mp3")
-        ),
-    ),
-    dict(
-        short="Dinner near Ikoma Station",
-        elev=100,
-        title="Dinner in Ikoma",
-        subtitle="生駒駅周辺で夕食",
-        welcome_note="",
-        content=(
-            "<p>Back down at Ikoma Station, take a break before the tour's final stop.</p>"
-            "<h3>A few options</h3>"
-            "<ul>"
-            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
-            "<li><strong>Nanko</strong> — izakaya near the station</li>"
-            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
-            "</ul>"
-            + photo_slot("Ikoma Station area at night")
-            + audio_slot("main-07-ikoma-dinner.mp3")
-        ),
-    ),
-    dict(
-        short="Ride to Arahon",
-        elev=20,
-        title="To Arahon Station",
-        subtitle="生駒駅 → 荒本駅 · Kintetsu Keihanna Line, no transfer",
-        welcome_note="",
-        content=(
-            "<p>One direct ride, about 10 minutes, and you're at the foot of the tour's "
-            "final stop.</p>"
-            + audio_slot("main-08-to-arahon.mp3")
-        ),
-        transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
-    ),
-    dict(
-        short="Higashiosaka City Hall observatory (finale)",
-        elev=90,
-        title="Higashiosaka City Hall Observatory",
-        subtitle="東大阪市役所22階展望ロビー · Tour finale",
-        welcome_note="",
-        content=(
-            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
-            "Heritage sites — this 22nd-floor lobby is where tonight's ascent ends. From here: "
-            "Abeno Harukas, Mt. Ikoma behind you, the Higashiosaka junction below, and on a "
-            "clear night, Awaji Island on the horizon.</p>"
-            + photo_slot("22F observatory view")
-            + photo_slot("City lights panorama")
-            + audio_slot("main-09-city-hall-finale.mp3")
-            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
-            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+            "stay grounded; the shrine's atmosphere, not spectacle, is the draw. Ishikiri "
+            "Station, where you started your journey home, is a short walk from here.</div>"
         ),
     ),
 ]
@@ -315,22 +318,81 @@ main_stops = [
 # ---------------------------------------------------------------------------
 alt_stops = [
     dict(
-        short="Ishikiri Station — meeting point",
-        elev=40,
-        title="Ishikiri Station",
-        subtitle="石切駅 · Kintetsu Nara Line",
+        short="Arahon Station — meeting point",
+        elev=20,
+        title="Arahon Station",
+        subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
-            "The mountaintop park is closed or off its night hours today, so tonight's ascent "
-            "trades the summit deck for more time at the shrine and its street, then heads "
-            "straight to the skyline finale."
+            "The mountaintop park is closed or off its night hours today, so tonight's route "
+            "trades the summit deck for more time at the shrine and its street, opening with "
+            "the skyline view and closing with a slower, quieter finale in Ishikiri. Meet at "
+            "Arahon Station around 18:00 (autumn season)."
         ),
         content=(
-            "<p>You're standing at the gateway to \"Ishikiri-san\" — one of the Kansai "
-            "region's most visited shrine towns, known for centuries as a place people "
-            "come to pray for health and healing.</p>"
-            + photo_slot("Ishikiri Station exterior")
-            + audio_slot("alt-01-ishikiri-station.mp3")
+            "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
+            "one of the region's best free night views.</p>"
+            + photo_slot("Arahon Station exterior")
+            + audio_slot("alt-01-arahon-station.mp3")
         ),
+    ),
+    dict(
+        short="Higashiosaka City Hall observatory",
+        elev=90,
+        title="Higashiosaka City Hall Observatory",
+        subtitle="東大阪市役所22階展望ロビー · Tonight's opening view",
+        welcome_note="",
+        content=(
+            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
+            "Heritage sites. From the 22nd floor: Abeno Harukas, Mt. Ikoma, the Higashiosaka "
+            "junction below, and on a clear night, Awaji Island on the horizon.</p>"
+            + photo_slot("22F observatory view")
+            + photo_slot("City lights panorama")
+            + audio_slot("alt-02-city-hall.mp3")
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+        ),
+    ),
+    dict(
+        short="Ride to Ikoma",
+        elev=70,
+        title="To Ikoma Station",
+        subtitle="荒本駅 → 生駒駅 · Kintetsu Keihanna Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>One direct ride, about 10 minutes, toward dinner.</p>"
+            + audio_slot("alt-03-to-ikoma.mp3")
+        ),
+        transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
+    ),
+    dict(
+        short="Dinner near Ikoma Station",
+        elev=100,
+        title="Dinner in Ikoma",
+        subtitle="生駒駅周辺で夕食",
+        welcome_note="",
+        content=(
+            "<h3>A few options</h3>"
+            "<ul>"
+            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
+            "<li><strong>Nanko</strong> — izakaya near the station</li>"
+            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
+            "</ul>"
+            + photo_slot("Ikoma Station area at night")
+            + audio_slot("alt-04-ikoma-dinner.mp3")
+        ),
+    ),
+    dict(
+        short="Ride to Ishikiri",
+        elev=40,
+        title="To Ishikiri Station",
+        subtitle="生駒駅 → 石切駅 · Kintetsu Nara Line, no transfer",
+        welcome_note="",
+        content=(
+            "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
+            "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            + audio_slot("alt-05-to-ishikiri.mp3")
+        ),
+        transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
     ),
     dict(
         short="Ishikiri Approach Street — fortune tellers & locals",
@@ -346,10 +408,11 @@ alt_stops = [
             "you're not just looking at Japan, you're in the middle of it.</p>"
             + photo_slot("Approach street shopfronts")
             + photo_slot("Fortune-telling shop signage")
-            + audio_slot("alt-02-approach-street.mp3")
+            + audio_slot("alt-06-approach-street.mp3")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
-            "happens. Not in the mood? Skip past — this stop is exactly as long as you want.</div>"
+            "happens. Not in the mood? Skip past — this stop is exactly as long as you want. "
+            "Fortune-telling here is paid directly to the shop, separate from the tour price.</div>"
             '<div class="note"><strong>Small confession</strong>: the person who built this '
             "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
         ),
@@ -364,67 +427,24 @@ alt_stops = [
             "<p>A quieter, elevated companion to the main shrine, about 7 minutes on foot from "
             "the station. Visiting Kamisha before the main hall is the recommended order.</p>"
             + photo_slot("Kamisha grounds")
-            + audio_slot("alt-03-kamisha.mp3")
+            + audio_slot("alt-07-kamisha.mp3")
         ),
     ),
     dict(
-        short="Shimosha (Main Hall)",
+        short="Shimosha (Main Hall, finale)",
         elev=55,
         title="Shimosha — the Main Hall",
-        subtitle="石切劔箭神社 下之社",
+        subtitle="石切劔箭神社 下之社 · Tour finale",
         welcome_note="",
         content=(
-            "<p>The main hall and its inner sanctuary. Look for visitors circling the approach "
-            "in slow, repeated laps — that's <em>ohyakudo mairi</em>, \"the hundred-times "
-            "pilgrimage,\" one of the shrine's oldest and most visible customs.</p>"
+            "<p>The main hall and its inner sanctuary — where tonight's route quietly comes "
+            "to rest. Look for visitors circling the approach in slow, repeated laps — that's "
+            "<em>ohyakudo mairi</em>, \"the hundred-times pilgrimage,\" one of the shrine's "
+            "oldest and most visible customs.</p>"
             + photo_slot("Shimosha main hall")
-            + audio_slot("alt-04-shimosha.mp3")
-        ),
-    ),
-    dict(
-        short="Dinner near Ikoma Station",
-        elev=100,
-        title="Dinner in Ikoma",
-        subtitle="生駒駅周辺で夕食",
-        welcome_note="",
-        content=(
-            "<h3>A few options</h3>"
-            "<ul>"
-            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
-            "<li><strong>Nanko</strong> — izakaya near the station</li>"
-            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
-            "</ul>"
-            + photo_slot("Ikoma Station area at night")
-            + audio_slot("alt-05-ikoma-dinner.mp3")
-        ),
-    ),
-    dict(
-        short="Ride to Arahon",
-        elev=20,
-        title="To Arahon Station",
-        subtitle="生駒駅 → 荒本駅 · Kintetsu Keihanna Line, no transfer",
-        welcome_note="",
-        content=(
-            "<p>One direct ride, about 10 minutes, to the tour's final stop.</p>"
-            + audio_slot("alt-06-to-arahon.mp3")
-        ),
-        transit="Ikoma → Arahon · Kintetsu Keihanna Line · ~10 min, no transfer",
-    ),
-    dict(
-        short="Higashiosaka City Hall observatory (finale)",
-        elev=90,
-        title="Higashiosaka City Hall Observatory",
-        subtitle="東大阪市役所22階展望ロビー · Tour finale",
-        welcome_note="",
-        content=(
-            "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
-            "Heritage sites. From the 22nd floor: Abeno Harukas, Mt. Ikoma, the Higashiosaka "
-            "junction below, and on a clear night, Awaji Island on the horizon.</p>"
-            + photo_slot("22F observatory view")
-            + photo_slot("City lights panorama")
-            + audio_slot("alt-07-city-hall-finale.mp3")
-            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
-            "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
+            + audio_slot("alt-08-shimosha.mp3")
+            + '<div class="note">Ishikiri Station, where you started your journey home, is a '
+            "short walk from here.</div>"
         ),
     ),
 ]
