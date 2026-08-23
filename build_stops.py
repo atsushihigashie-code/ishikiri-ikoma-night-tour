@@ -80,6 +80,12 @@ def map_link(lat, lng, label):
             f'<path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
             f'Open {label} in Google Maps</a>')
 
+def external_link(url, label):
+    return (f'<a class="map-link" href="{url}" target="_blank" rel="noopener">'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">'
+            f'<path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>'
+            f'{label}</a>')
+
 
 def audio_slot(filename):
     return f'''<div class="audio-slot">
@@ -261,6 +267,7 @@ main_stops = [
             "trees against the night sky.</p>"
             + photo_img("ikomasanjo-foodstalls.jpg", "Food stalls at Ikomasanjo at night")
             + photo_img("ikomasanjo-rides-lights.jpg", "Illuminated rides and lights at Ikomasanjo")
+            + external_link("https://www.ikomasanjou.com/images/map_en.pdf", "Park Map (English, PDF)")
         ),
     ),
     dict(
