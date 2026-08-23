@@ -70,6 +70,10 @@ def photo_slot(caption):
 PHOTO<br/>{caption}
 </div>'''
 
+def photo_img(filename, alt):
+    return f'<img class="stop-photo" src="../shared/photos/{filename}" alt="{alt}" loading="lazy" />'
+
+
 def audio_slot(filename):
     return f'''<div class="audio-slot">
 <div class="dot">♪</div>
@@ -167,8 +171,10 @@ main_stops = [
             "Heritage sites — this 22nd-floor lobby is where tonight's ascent begins. From "
             "here: Abeno Harukas, Mt. Ikoma ahead of you, the Higashiosaka junction below, "
             "and on a clear night, Awaji Island on the horizon.</p>"
-            + photo_slot("22F observatory view")
-            + photo_slot("City lights panorama")
+            + photo_img("cityhall-entrance.jpg", "22F observatory entrance")
+            + photo_img("cityhall-exterior.jpg", "Higashiosaka City Hall exterior at night")
+            + photo_img("cityhall-view1.jpg", "Night skyline view from the 22F observatory")
+            + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("main-02-city-hall.mp3")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
@@ -345,8 +351,10 @@ alt_stops = [
             "<p>Free to enter, open until 23:00, and certified as one of Japan's Night View "
             "Heritage sites. From the 22nd floor: Abeno Harukas, Mt. Ikoma, the Higashiosaka "
             "junction below, and on a clear night, Awaji Island on the horizon.</p>"
-            + photo_slot("22F observatory view")
-            + photo_slot("City lights panorama")
+            + photo_img("cityhall-entrance.jpg", "22F observatory entrance")
+            + photo_img("cityhall-exterior.jpg", "Higashiosaka City Hall exterior at night")
+            + photo_img("cityhall-view1.jpg", "Night skyline view from the 22F observatory")
+            + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("alt-02-city-hall.mp3")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
