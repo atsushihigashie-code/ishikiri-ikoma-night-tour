@@ -223,12 +223,23 @@ main_stops = [
             "<p>From Torii-mae Station beside Ikoma Station, the cable car climbs through "
             "Hozan-ji on its way to the summit station. This is one of the oldest cable "
             "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
-            + photo_slot("Cable car cabin")
-            + photo_slot("View during ascent")
+            + photo_img("cable-car-train.jpg", "Ikoma Cable train at the platform")
             + audio_slot("main-04-ikoma-cable.mp3")
+            + '<div class="note"><strong>Finding the platform</strong>: from Ikoma Station, '
+            "follow the connecting walkway signs straight to Torii-mae Station — it's well "
+            "marked. If you're unsure, ask anyone nearby or a station staff member; locals are "
+            "always happy to point the way.</div>"
+            + '<div class="note"><strong>Buying your ticket</strong>: tickets are sold from a '
+            "machine at the platform. A round-trip ticket (¥1,000) is recommended over separate "
+            "one-way fares.</div>"
+            + photo_img("cable-car-ticket-machine.jpg", "Ikoma Cable ticket machine screen")
             + '<div class="note"><strong>Timing matters</strong>: departures after 18:00 run only '
             "on days the mountaintop amusement park operates its night hours — that's the whole "
-            "reason tonight's route is possible. Confirm the current timetable before you go.</div>"
+            "reason tonight's route is possible. Confirm the current timetable before you go. "
+            "Every train requires a transfer at Hozan-ji Station (about a 4-minute wait) before "
+            "continuing up to the summit. Evening departures from Torii-mae around 19:20 connect "
+            "to a 19:29 departure from Hozan-ji, arriving at Ikomasanjo by 19:36 — a good target "
+            "if you're arriving from City Hall around 7pm.</div>"
         ),
     ),
     dict(
