@@ -96,7 +96,7 @@ def audio_slot(filename):
 <audio class="stop-audio" controls src="{{rel}}shared/audio/{filename}"></audio>
 -->'''
 
-def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_root="../"):
+def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_root="../", welcome_extra=None):
     n = len(stops)
     elevations = [(s["short"], s["elev"]) for s in stops]
     out_dir = os.path.join(PUBLIC, route_dir)
@@ -130,15 +130,40 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
             f.write(body)
 
     # welcome page for this route
+    welcome_extra = welcome_extra or {}
     welcome = HEAD.format(title=f"{route_title} — Welcome", rel=prev_root)
     welcome += f'<div class="eyebrow">{route_tag_label}</div>\n'
     welcome += f'<h1 class="title">{route_title}</h1>\n'
+    if welcome_extra.get("tagline"):
+        welcome += f'<p class="subtitle">{welcome_extra["tagline"]}</p>\n'
+
+    if welcome_extra.get("stats"):
+        welcome += '<div class="stat-row">\n'
+        for value, label in welcome_extra["stats"]:
+            welcome += f'<div class="stat"><div class="stat-value">{value}</div><div class="stat-label">{label}</div></div>\n'
+        welcome += '</div>\n'
+
     welcome += '<div class="card">\n'
     welcome += f'<p>{stops[0]["welcome_note"]}</p>\n'
-    welcome += '<h3>What to expect</h3>\n<ul>\n'
-    for s in stops:
-        welcome += f'<li>{s["short"]}</li>\n'
-    welcome += '</ul>\n</div>\n'
+    welcome += '</div>\n'
+
+    if welcome_extra.get("narrative"):
+        welcome += '<div class="card">\n'
+        welcome += '<h2>Before You Begin</h2>\n'
+        welcome += welcome_extra["narrative"]
+        welcome += '</div>\n'
+
+    welcome += '<div class="card">\n<h2>What\'s Ahead</h2>\n'
+    blurbs = welcome_extra.get("blurbs", [])
+    for i, s in enumerate(stops):
+        blurb = blurbs[i] if i < len(blurbs) else ""
+        welcome += (f'<div class="ahead-row"><div class="ahead-num">{i+1:02d}</div>'
+                    f'<div class="ahead-txt"><strong>{s["short"]}</strong>')
+        if blurb:
+            welcome += f'<div class="ahead-blurb">{blurb}</div>'
+        welcome += '</div></div>\n'
+    welcome += '</div>\n'
+
     welcome += f'<a class="btn btn-primary" style="display:block;text-align:center" href="stop01.html">Begin the tour →</a>\n'
     welcome += FOOT.format(rel=prev_root)
     with open(os.path.join(out_dir, "welcome.html"), "w", encoding="utf-8") as f:
@@ -549,6 +574,65 @@ alt_stops = [
     ),
 ]
 
-build_route("main", "route-main", "Sacred Sites & Skyline Views", "MAIN ROUTE", main_stops)
-build_route("alt", "route-alt", "Sacred Sites & Skyline Views (Alt.)", "ALT ROUTE", alt_stops)
+MAIN_WELCOME_EXTRA = dict(
+    tagline="One coin. Two thousand six hundred years of story. A city that never sleeps, seen from above and from the ground.",
+    stats=[("¥500", "One Coin"), ("642m", "Summit Height"), ("~660 BC", "Shrine Founded")],
+    narrative=(
+        "<h3>A Night That Climbs, Then Comes Back Down</h3>"
+        "<p>Most night tours pick one thing — a view, or a shrine, or a ride — and stop there. "
+        "This one does all three, in a single evening, because Higashiosaka happens to have "
+        "all three within reach of each other: a free skyline deck 22 floors up, a historic "
+        "cable railway that's been climbing this mountain since before most of Osaka's skyline "
+        "existed, and a shrine town said to trace its roots back some 2,600 years, to the reign "
+        "of Japan's legendary first emperor.</p>"
+        "<h3>Why the Order Matters</h3>"
+        "<p>Tonight starts high and bright, at City Hall, while the sky still holds some color. "
+        "Then it climbs higher still — by cable car, up Mt. Ikoma — while the color drains out "
+        "of the sky and the city below turns into a field of light. And it ends low and quiet, "
+        "in a shrine town where the crowds have gone home and the lanterns do the work the sun "
+        "did earlier. Ascent, then descent — into something older and stranger than a skyline.</p>"
+    ),
+    blurbs=[
+        "Meet here — Kintetsu Keihanna Line / Osaka Metro Chuo Line.",
+        "A free, award-recognized night view, 22 floors up — tonight's opening act.",
+        "One direct ride toward the base of the mountain.",
+        "A historic cable railway, climbing through Hozan-ji to the summit.",
+        "The high point of the night, literally — an illuminated park with a Cool Japan Award view.",
+        "A break to eat, back down at Ikoma Station.",
+        "One stop toward the old shrine town.",
+        "A street of fortune tellers that's been read by locals for generations.",
+        "A shrine said to trace back some 2,600 years — where the night quietly ends.",
+    ],
+)
+
+ALT_WELCOME_EXTRA = dict(
+    tagline="One coin. Two thousand six hundred years of story. Tonight, the mountain rests — so the shrine gets more of your time instead.",
+    stats=[("¥500", "One Coin"), ("~660 BC", "Shrine Founded"), ("100x", "Ohyakudo Mairi")],
+    narrative=(
+        "<h3>When the Summit Is Closed, the Shrine Opens Wider</h3>"
+        "<p>The mountaintop amusement park doesn't run its night hours every evening — and on "
+        "the nights it doesn't, this route trades the cable-car ascent for something quieter: "
+        "more time in Ishikiri, the shrine town said to trace its roots back some 2,600 years, "
+        "to the reign of Japan's legendary first emperor. You'll still get the same skyline "
+        "opener at City Hall and the same finale — just a different middle.</p>"
+        "<h3>A Slower Kind of Night</h3>"
+        "<p>Without the mountain in the mix, tonight has room to slow down at the shrine itself "
+        "— through its upper and lower halls, past a street of fortune tellers that's been read "
+        "by locals for generations, and finally to the quiet ritual of <em>ohyakudo mairi</em>, "
+        "a hundred-times pilgrimage walked by visitors who came for reasons of their own.</p>"
+    ),
+    blurbs=[
+        "Meet here — Kintetsu Keihanna Line / Osaka Metro Chuo Line.",
+        "A free, award-recognized night view, 22 floors up — tonight's opening act.",
+        "One direct ride toward Ikoma.",
+        "A break to eat near Ikoma Station.",
+        "One stop toward the old shrine town.",
+        "A street of fortune tellers that's been read by locals for generations.",
+        "The upper hall — a quieter, elevated companion to the main shrine.",
+        "The main hall, where the night quietly ends.",
+    ],
+)
+
+build_route("main", "route-main", "Sacred Sites & Skyline Views", "MAIN ROUTE", main_stops, welcome_extra=MAIN_WELCOME_EXTRA)
+build_route("alt", "route-alt", "Sacred Sites & Skyline Views (Alt.)", "ALT ROUTE", alt_stops, welcome_extra=ALT_WELCOME_EXTRA)
 print("Done.")
