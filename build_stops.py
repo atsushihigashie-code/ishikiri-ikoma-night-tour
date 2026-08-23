@@ -253,9 +253,14 @@ main_stops = [
             "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
             "basin below, tiny points of light against the dark. This is tonight's high "
             "point — literally and otherwise.</p>"
-            + photo_slot("Star Plaza deck at night")
-            + photo_slot("Skyline from summit")
+            + photo_img("ikomasanjo-view1.jpg", "Night skyline view from Ikomasanjo")
+            + photo_img("ikomasanjo-view2.jpg", "Wide night skyline from the summit")
             + audio_slot("main-05-summit-deck.mp3")
+            + "<p>Beyond the view, the park itself is worth wandering — food stalls, an "
+            "illuminated garden of miniature lit-up houses, and rides threading through the "
+            "trees against the night sky.</p>"
+            + photo_img("ikomasanjo-foodstalls.jpg", "Food stalls at Ikomasanjo at night")
+            + photo_img("ikomasanjo-rides-lights.jpg", "Illuminated rides and lights at Ikomasanjo")
         ),
     ),
     dict(
