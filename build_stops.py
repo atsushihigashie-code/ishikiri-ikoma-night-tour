@@ -152,23 +152,23 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
 # ---------------------------------------------------------------------------
 main_stops = [
     dict(
-        short="Arahon Station — meeting point",
+        short="Aramoto Station — meeting point",
         elev=20,
-        title="Arahon Station",
+        title="Aramoto Station",
         subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
             "Tonight's route climbs, quite literally: from a city-hall skyline view, up a "
             "mountain by cable car, then back down to a shrine town where the night ends "
-            "slowly. Nine stops, each worth lingering in — meet at Arahon Station around "
+            "slowly. Nine stops, each worth lingering in — meet at Aramoto Station around "
             "17:00 (autumn season) and we'll begin."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
             "one of the region's best free night views. From here the evening climbs toward "
             "Mt. Ikoma, then eases back down into the old shrine town of Ishikiri.</p>"
-            + photo_slot("Arahon Station exterior")
+            + photo_slot("Aramoto Station exterior")
             + audio_slot("main-01-arahon-station.mp3")
-            + '<div class="note"><strong>Getting here</strong>: Arahon is served by both the '
+            + '<div class="note"><strong>Getting here</strong>: Aramoto is served by both the '
             "Kintetsu Keihanna Line and the Osaka Metro Chuo Line (through-running services) — "
             "check which fare applies to your ticket or IC card before boarding.</div>"
             + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
@@ -193,7 +193,7 @@ main_stops = [
             + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("main-02-city-hall.mp3")
             + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
-            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Aramoto '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
             + '<div class="note"><strong>Finding the elevator</strong>: once inside from the '
             "north entrance, turn left and look for Elevator No. 8 — it goes straight up to "
@@ -210,14 +210,14 @@ main_stops = [
             "<p>One direct ride, about 10 minutes, toward the base of the cable car.</p>"
             + audio_slot("main-03-to-ikoma.mp3")
             + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
-            "near Ikoma Station, but on the walk back from City Hall to Arahon Station you'll "
+            "near Ikoma Station, but on the walk back from City Hall to Aramoto Station you'll "
             "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
             "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
             "Entirely optional.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
         ),
-        transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
+        transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
     dict(
         short="Ikoma Cable — ride the mountain",
@@ -390,20 +390,20 @@ main_stops = [
 # ---------------------------------------------------------------------------
 alt_stops = [
     dict(
-        short="Arahon Station — meeting point",
+        short="Aramoto Station — meeting point",
         elev=20,
-        title="Arahon Station",
+        title="Aramoto Station",
         subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
             "The mountaintop park is closed or off its night hours today, so tonight's route "
             "trades the summit deck for more time at the shrine and its street, opening with "
             "the skyline view and closing with a slower, quieter finale in Ishikiri. Meet at "
-            "Arahon Station around 17:00 (autumn season)."
+            "Aramoto Station around 17:00 (autumn season)."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
             "one of the region's best free night views.</p>"
-            + photo_slot("Arahon Station exterior")
+            + photo_slot("Aramoto Station exterior")
             + audio_slot("alt-01-arahon-station.mp3")
             + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
             "7-minute walk from the station. The east entrance is closed, so enter from the "
@@ -426,7 +426,7 @@ alt_stops = [
             + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("alt-02-city-hall.mp3")
             + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
-            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
+            + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Aramoto '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
             + '<div class="note"><strong>Finding the elevator</strong>: once inside from the '
             "north entrance, turn left and look for Elevator No. 8 — it goes straight up to "
@@ -443,14 +443,14 @@ alt_stops = [
             "<p>One direct ride, about 10 minutes, toward dinner.</p>"
             + audio_slot("alt-03-to-ikoma.mp3")
             + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
-            "near Ikoma Station, but on the walk back from City Hall to Arahon Station you'll "
+            "near Ikoma Station, but on the walk back from City Hall to Aramoto Station you'll "
             "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
             "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
             "Entirely optional.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
         ),
-        transit="Arahon → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
+        transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
     dict(
         short="Dinner near Ikoma Station",
