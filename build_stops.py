@@ -73,6 +73,13 @@ PHOTO<br/>{caption}
 def photo_img(filename, alt):
     return f'<img class="stop-photo" src="../shared/photos/{filename}" alt="{alt}" loading="lazy" />'
 
+def map_link(lat, lng, label):
+    url = f'https://www.google.com/maps/search/?api=1&query={lat},{lng}'
+    return (f'<a class="map-link" href="{url}" target="_blank" rel="noopener">'
+            f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">'
+            f'<path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'
+            f'Open {label} in Google Maps</a>')
+
 
 def audio_slot(filename):
     return f'''<div class="audio-slot">
@@ -176,6 +183,7 @@ main_stops = [
             + photo_img("cityhall-view1.jpg", "Night skyline view from the 22F observatory")
             + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("main-02-city-hall.mp3")
+            + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
         ),
@@ -356,6 +364,7 @@ alt_stops = [
             + photo_img("cityhall-view1.jpg", "Night skyline view from the 22F observatory")
             + photo_img("cityhall-view2.jpg", "Night skyline view toward Mt. Ikoma")
             + audio_slot("alt-02-city-hall.mp3")
+            + map_link(34.6794486, 135.6009840, "Higashiosaka City Hall")
             + '<div class="skyline-note"><strong>Access</strong>: 5 min walk from Exit 1 of Arahon '
             "Station (Kintetsu Keihanna Line / Osaka Metro Chuo Line). Closed Dec 29–Jan 3.</div>"
         ),
