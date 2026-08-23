@@ -356,22 +356,26 @@ main_stops = [
         subtitle="石切劔箭神社 · \"Ishikiri-san\" · Tour finale",
         welcome_note="",
         content=(
-            "<p>Tradition holds this shrine was founded in the second year of Emperor Jinmu's "
-            "reign. Locals know it as <em>Denbo no Kamisama</em> — a place associated with "
-            "healing, especially freedom from illness. The grounds are open 24 hours, and "
-            "this is where tonight's route quietly comes to rest.</p>"
-            "<p>Its best-known reputation is for <em>gan-fuji</em> — warding off cancer — "
-            "alongside illness more broadly. This is a matter of centuries-old belief and "
-            "tradition, not medical claim: many visitors come specifically to pray for "
-            "themselves or a family member facing serious illness, and that quiet sense of "
-            "purpose is part of what makes the atmosphere here different from an ordinary "
-            "sightseeing stop.</p>"
-            "<p>Look for visitors circling the approach to the main hall in slow, repeated "
-            "laps — that's <em>ohyakudo mairi</em>, \"the hundred-times pilgrimage,\" one of "
-            "the shrine's oldest and most visible customs, and something you'll see almost "
-            "nowhere else on this scale.</p>"
-            + photo_slot("Shrine main hall")
-            + photo_slot("Ohyakudo mairi path")
+            "<p>By day this is a busy neighborhood shrine. After dark, something shifts. The "
+            "crowds thin out, the lanterns take over from the sun, and the stone lions at the "
+            "gate seem to watch a little more closely. Step through, and you're stepping into "
+            "a story that's said to reach back some 2,600 years — to the reign of Emperor "
+            "Jinmu, the legendary first emperor of Japan, in whose era this shrine's origins "
+            "are traced.</p>"
+            "<p>Locals call it <em>Denbo no Kamisama</em> — a name tied to healing, and above "
+            "all to <em>gan-fuji</em>, warding off cancer. This is centuries-old belief, not "
+            "medical claim, and it's worth saying plainly: nothing here treats illness. But "
+            "belief has its own weight. People still travel here quietly, at all hours, to "
+            "pray for themselves or someone they love facing a serious diagnosis — and that "
+            "unspoken urgency lingers in the air in a way no ordinary sightseeing stop ever "
+            "does.</p>"
+            "<p>Watch the approach to the main hall and you may see it: figures walking the "
+            "same short stretch of ground again and again, a hundred times over. That's "
+            "<em>ohyakudo mairi</em>, \"the hundred-times pilgrimage\" — one prayer repeated "
+            "until it becomes a kind of vigil. At night, with almost no one else around, it "
+            "can feel less like a tourist sight and more like something you weren't quite "
+            "meant to witness.</p>"
+            + photo_img("ishikiri-shrine-night3.jpg", "Ishikiri Shrine covered walkway at night")
             + audio_slot("main-09-ishikiri-shrine.mp3")
             + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
             "lighting is ordinary street lighting after dark. We mention this so expectations "
