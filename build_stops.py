@@ -167,6 +167,7 @@ main_stops = [
             "one of the region's best free night views. From here the evening climbs toward "
             "Mt. Ikoma, then eases back down into the old shrine town of Ishikiri.</p>"
             + photo_slot("Aramoto Station exterior")
+            + map_link(34.6786649, 135.6047452, "Aramoto Station")
             + audio_slot("main-01-arahon-station.mp3")
             + '<div class="note"><strong>Getting here</strong>: Aramoto is served by both the '
             "Kintetsu Keihanna Line and the Osaka Metro Chuo Line (through-running services) — "
@@ -404,6 +405,7 @@ alt_stops = [
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
             "one of the region's best free night views.</p>"
             + photo_slot("Aramoto Station exterior")
+            + map_link(34.6786649, 135.6047452, "Aramoto Station")
             + audio_slot("alt-01-arahon-station.mp3")
             + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
             "7-minute walk from the station. The east entrance is closed, so enter from the "
