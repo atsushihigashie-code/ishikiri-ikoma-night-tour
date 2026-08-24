@@ -7,6 +7,27 @@ const FIREBASE_DB_URL =
 const FIREBASE_DB_SECRET = process.env.FIREBASE_DB_SECRET;
 const MAX_USES = 3;
 
+// "Today" in Japan time, as YYYY-MM-DD — used so hotel dashboards match
+// what the front-desk staff mean by "today", not UTC's today.
+function getJstDateString() {
+  const jstOffset = 9 * 60 * 60 * 1000;
+  return new Date(Date.now() + jstOffset).toISOString().slice(0, 10);
+}
+
+// Records one referred booking under referrals/{hotelId}/{date}/{sessionId}.
+// Called at most once per session (guarded by the caller, same as the
+// access-code creation it sits next to).
+async function logReferralIfAny(session, sessionId) {
+  const hotelId = session.client_reference_id;
+  if (!hotelId) return;
+  const date = getJstDateString();
+  const refUrl = `${FIREBASE_DB_URL}/referrals/${hotelId}/${date}/${sessionId}.json?auth=${FIREBASE_DB_SECRET}`;
+  await fetch(refUrl, {
+    method: "PUT",
+    body: JSON.stringify({ timestamp: Date.now(), commission: 200 }),
+  });
+}
+
 module.exports = async function handler(req, res) {
   try {
     const sessionId = req.query.session_id;
@@ -51,6 +72,9 @@ module.exports = async function handler(req, res) {
         method: "PUT",
         body: JSON.stringify({ maxUses: MAX_USES, uses: 0, sessionId }),
       });
+      // Only reached the first time this session is verified, so the
+      // referral is logged exactly once per purchase.
+      await logReferralIfAny(session, sessionId);
     }
 
     res.status(200).json({ code, maxUses: MAX_USES });
