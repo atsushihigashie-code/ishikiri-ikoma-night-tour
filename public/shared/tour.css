@@ -209,6 +209,16 @@ h1.title{
   display: block;
 }
 
+.welcome-hero{
+  width:100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin: 14px 0 18px;
+  border: 1px solid var(--line);
+}
+
 .stat-row{
   display:flex; gap:12px;
   margin: 16px 0 18px;
