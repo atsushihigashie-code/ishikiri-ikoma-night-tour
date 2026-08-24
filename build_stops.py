@@ -245,7 +245,9 @@ main_stops = [
             "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
             "Entirely optional.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
+            + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
+            + map_link(34.6789079, 135.6038037, "Osaka Ohsho")
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -260,6 +262,7 @@ main_stops = [
             "Hozan-ji on its way to the summit station. This is one of the oldest cable "
             "railways in Japan, and after dark the city lights unfold below as you rise.</p>"
             + photo_img("cable-car-train.jpg", "Ikoma Cable train at the platform")
+            + map_link(34.692398, 135.6961942, "Torii-mae Station (cable car base)")
             + audio_slot("main-04-ikoma-cable.mp3")
             + '<div class="note"><strong>Finding the platform</strong>: from Ikoma Station, '
             "follow the connecting walkway signs straight to Torii-mae Station — it's well "
@@ -286,6 +289,7 @@ main_stops = [
         welcome_note="",
         content=(
             external_link("https://www.ikomasanjou.com/images/map_en.pdf", "Tap here for the full Park Map (English, PDF)")
+            + map_link(34.6792181, 135.6791714, "Ikomasanjo Amusement Park")
             + "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
             "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
             "basin below, tiny points of light against the dark. This is tonight's high "
@@ -314,6 +318,7 @@ main_stops = [
             "what's on offer — and if you're still hungry once you reach Ishikiri, there are "
             "a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("main-06-ikoma-dinner.mp3")
+            + map_link(34.6931918, 135.6978685, "Ikoma Station")
             + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
             + photo_img("ikoma-dinner-menu2.jpg", "Restaurant ticket machine — lunch plates")
             + photo_img("ikoma-dinner-menu3.jpg", "Restaurant ticket machine — more lunch plates")
@@ -330,6 +335,7 @@ main_stops = [
             "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
             "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
             + audio_slot("main-07-to-ishikiri.mp3")
+            + map_link(34.6852869, 135.6554838, "Ishikiri Station")
         ),
         transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
     ),
@@ -358,6 +364,7 @@ main_stops = [
             + photo_img("ishikiri-shrine-night1.jpg", "Ishikiri Shrine main hall at night")
             + photo_img("ishikiri-shrine-night2.jpg", "Ishikiri Shrine approach at night")
             + audio_slot("main-08-approach-street.mp3")
+            + map_link(34.6823097, 135.6462518, "Ishikiri Approach Street")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
             "happens; plenty of shopkeepers are happy to work it out with a curious visitor. "
@@ -399,6 +406,7 @@ main_stops = [
             "can feel less like a tourist sight and more like something you weren't quite "
             "meant to witness.</p>"
             + photo_img("ishikiri-shrine-night3.jpg", "Ishikiri Shrine covered walkway at night")
+            + map_link(34.6823097, 135.6462518, "Ishikiri Tsurugiya Shrine")
             + audio_slot("main-09-ishikiri-shrine.mp3")
             + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
             "lighting is ordinary street lighting after dark. We mention this so expectations "
@@ -466,13 +474,16 @@ alt_stops = [
         content=(
             "<p>One direct ride, about 10 minutes, toward dinner.</p>"
             + audio_slot("alt-03-to-ikoma.mp3")
+            + map_link(34.6931918, 135.6978685, "Ikoma Station")
             + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
             "near Ikoma Station, but on the walk back from City Hall to Aramoto Station you'll "
             "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
             "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
             "Entirely optional.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
+            + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
+            + map_link(34.6789079, 135.6038037, "Osaka Ohsho")
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -488,6 +499,7 @@ alt_stops = [
             "already had dinner, feel free to skip ahead. If not, and you're still hungry once "
             "you reach Ishikiri, there are a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("alt-04-ikoma-dinner.mp3")
+            + map_link(34.6931918, 135.6978685, "Ikoma Station")
             + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
             + photo_img("ikoma-dinner-menu2.jpg", "Restaurant ticket machine — lunch plates")
             + photo_img("ikoma-dinner-menu3.jpg", "Restaurant ticket machine — more lunch plates")
@@ -504,6 +516,7 @@ alt_stops = [
             "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
             "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
             + audio_slot("alt-05-to-ishikiri.mp3")
+            + map_link(34.6852869, 135.6554838, "Ishikiri Station")
         ),
         transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
     ),
@@ -528,6 +541,7 @@ alt_stops = [
             + photo_img("ishikiri-shrine-night1.jpg", "Ishikiri Shrine main hall at night")
             + photo_img("ishikiri-shrine-night2.jpg", "Ishikiri Shrine approach at night")
             + audio_slot("alt-06-approach-street.mp3")
+            + map_link(34.6823097, 135.6462518, "Ishikiri Approach Street")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
             "happens. Not in the mood? Skip past — this stop is exactly as long as you want. "
@@ -550,6 +564,7 @@ alt_stops = [
             "<p>A quieter, elevated companion to the main shrine, about 7 minutes on foot from "
             "the station. Visiting Kamisha before the main hall is the recommended order.</p>"
             + photo_slot("Kamisha grounds")
+            + map_link(34.6823097, 135.6462518, "Ishikiri Kamisha (Upper Shrine)")
             + audio_slot("alt-07-kamisha.mp3")
         ),
     ),
@@ -565,6 +580,7 @@ alt_stops = [
             "<em>ohyakudo mairi</em>, \"the hundred-times pilgrimage,\" one of the shrine's "
             "oldest and most visible customs.</p>"
             + photo_slot("Shimosha main hall")
+            + map_link(34.6823097, 135.6462518, "Ishikiri Tsurugiya Shrine")
             + audio_slot("alt-08-shimosha.mp3")
             + '<div class="note">Ishikiri Station, where you started your journey home, is a '
             "short walk from here.</div>"
