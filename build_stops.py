@@ -239,11 +239,12 @@ main_stops = [
         content=(
             "<p>One direct ride, about 10 minutes, toward the base of the cable car.</p>"
             + audio_slot("main-03-to-ikoma.mp3")
-            + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
-            "near Ikoma Station, but on the walk back from City Hall to Aramoto Station you'll "
-            "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
-            "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
-            "Entirely optional.</div>"
+            + '<div class="note"><strong>Save room for the summit, if you can</strong>: the '
+            "restaurant inside Ikomasanjo is genuinely one of the best dinner-with-a-view spots "
+            "on this whole route, so it's worth holding out for if your schedule allows. That "
+            "said, if you're too hungry to wait, on the walk back from City Hall to Aramoto "
+            "Station you'll pass two solid options: <em>Jonetsu Horumon</em>, a yakiniku grill "
+            "house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
@@ -475,11 +476,12 @@ alt_stops = [
             "<p>One direct ride, about 10 minutes, toward dinner.</p>"
             + audio_slot("alt-03-to-ikoma.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
-            + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead '
-            "near Ikoma Station, but on the walk back from City Hall to Aramoto Station you'll "
-            "pass two solid options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku "
-            "grill house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. "
-            "Entirely optional.</div>"
+            + '<div class="note"><strong>Save room for the summit, if you can</strong>: the '
+            "restaurant inside Ikomasanjo is genuinely one of the best dinner-with-a-view spots "
+            "on this whole route, so it's worth holding out for if your schedule allows. That "
+            "said, if you're too hungry to wait, on the walk back from City Hall to Aramoto "
+            "Station you'll pass two solid options: <em>Jonetsu Horumon</em>, a yakiniku grill "
+            "house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
@@ -605,6 +607,10 @@ MAIN_WELCOME_EXTRA = dict(
         "of the sky and the city below turns into a field of light. And it ends low and quiet, "
         "in a shrine town where the crowds have gone home and the lanterns do the work the sun "
         "did earlier. Ascent, then descent — into something older and stranger than a skyline.</p>"
+        "<p><strong>One tip before you go</strong>: this tour's real highlight is dinner with a "
+        "view at the summit. If your schedule allows, hold off on eating until you reach the "
+        "restaurant inside Ikomasanjo — it's genuinely one of the best dinner-with-a-view spots "
+        "on the whole route.</p>"
     ),
     blurbs=[
         "Meet here — Kintetsu Keihanna Line / Osaka Metro Chuo Line.",
