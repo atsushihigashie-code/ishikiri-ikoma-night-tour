@@ -419,6 +419,9 @@ main_stops = [
             "lighting is ordinary street lighting after dark. We mention this so expectations "
             "stay grounded; the shrine's atmosphere, not spectacle, is the draw. Ishikiri "
             "Station, where you started your journey home, is a short walk from here.</div>"
+            + "<p>How was tonight's tour? If it brought even a little peace to your heart, or "
+            "a bit of quiet strength for whatever comes next in your life — then this tour has "
+            "done what it set out to do. Thank you for spending the evening with us.</p>"
         ),
     ),
 ]
@@ -593,6 +596,9 @@ alt_stops = [
             + audio_slot("alt-08-shimosha.mp3")
             + '<div class="note">Ishikiri Station, where you started your journey home, is a '
             "short walk from here.</div>"
+            + "<p>How was tonight's tour? If it brought even a little peace to your heart, or "
+            "a bit of quiet strength for whatever comes next in your life — then this tour has "
+            "done what it set out to do. Thank you for spending the evening with us.</p>"
         ),
     ),
 ]
