@@ -575,6 +575,7 @@ alt_stops = [
             "<p>Ikoma Station has plenty of restaurants and cafes within a short walk — from "
             "casual izakaya to department store dining floors. Take a lap, see what looks "
             "good, and settle in before continuing on to Ishikiri.</p>"
+            + photo_img("ikoma-station-platform.jpg", "Ikoma Station platform")
             + audio_slot("alt-04-ikoma-dinner.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
         ),
