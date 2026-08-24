@@ -550,7 +550,8 @@ alt_stops = [
             "enshrined Daishō Kangiten here. Tankai's rituals for the deity were said to be "
             "so effective that his reputation spread widely, and Hozanji became one of the "
             "most visited temples in the region.</p>"
-            + photo_slot("Hozanji temple grounds at night")
+            + photo_img("hozanji-lanterns-path.jpg", "Lantern-lit path at Hozanji at night")
+            + photo_img("hozanji-grounds-night.jpg", "Hozanji temple grounds lit by lanterns at night")
             + audio_slot("alt-hozanji-temple.mp3")
             + map_link(34.684667, 135.686556, "Hozanji Temple")
             + '<div class="note"><strong>Visiting at night</strong>: the temple grounds close '
