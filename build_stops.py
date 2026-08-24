@@ -285,7 +285,8 @@ main_stops = [
         subtitle="生駒山上遊園地・星の広場展望デッキ",
         welcome_note="",
         content=(
-            "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
+            external_link("https://www.ikomasanjou.com/images/map_en.pdf", "Tap here for the full Park Map (English, PDF)")
+            + "<p>The Star Plaza observation deck won a Cool Japan Award in 2019, and it earns "
             "it: on a clear night you can pick out Abeno Harukas and Osaka Castle across the "
             "basin below, tiny points of light against the dark. This is tonight's high "
             "point — literally and otherwise.</p>"
@@ -297,7 +298,6 @@ main_stops = [
             "trees against the night sky.</p>"
             + photo_img("ikomasanjo-foodstalls.jpg", "Food stalls at Ikomasanjo at night")
             + photo_img("ikomasanjo-rides-lights.jpg", "Illuminated rides and lights at Ikomasanjo")
-            + external_link("https://www.ikomasanjou.com/images/map_en.pdf", "Park Map (English, PDF)")
         ),
     ),
     dict(
