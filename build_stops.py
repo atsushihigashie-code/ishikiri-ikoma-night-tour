@@ -609,7 +609,8 @@ alt_stops = [
             "isn't really a tourist attraction, it's where Osaka locals come on ordinary "
             "weeknights for an honest answer about something on their mind. Standing here, "
             "you're not just looking at Japan, you're in the middle of it.</p>"
-            "<p>Divination like this has old roots in Japan, and they run closer to Shinto "
+            + audio_slot("alt-06-approach-street.mp3")
+            + "<p>Divination like this has old roots in Japan, and they run closer to Shinto "
             "than you might expect. Long before it was a way to plan your week, fortune-telling "
             "was tangled up with warding off misfortune — the same impulse behind a shrine's "
             "purification rites, where a priest would clear away bad luck and offer guidance "
@@ -617,7 +618,6 @@ alt_stops = [
             "half practical advice, half quiet ritual.</p>"
             + photo_img("ishikiri-shrine-night1.jpg", "Ishikiri Shrine main hall at night")
             + photo_img("ishikiri-shrine-night2.jpg", "Ishikiri Shrine approach at night")
-            + audio_slot("alt-06-approach-street.mp3")
             + map_link(34.6823097, 135.6462518, "Ishikiri Approach Street")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
@@ -629,6 +629,7 @@ alt_stops = [
             "another afternoon before 4pm.</div>"
             '<div class="note"><strong>Small confession</strong>: the person who built this '
             "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
+            + audio_slot("alt-06b-approach-street-outro.mp3")
         ),
     ),
     dict(
