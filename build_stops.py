@@ -621,8 +621,10 @@ alt_stops = [
             + map_link(34.6823097, 135.6462518, "Ishikiri Approach Street")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
-            "happens. Not in the mood? Skip past — this stop is exactly as long as you want. "
-            "Fortune-telling here is paid directly to the shop, separate from the tour price.</div>"
+            "happens; plenty of shopkeepers are happy to work it out with a curious visitor. "
+            "Not in the mood? Skip straight past — there's no schedule pressure here, this "
+            "whole stop is exactly as long as you want it to be. Fortune-telling here is paid "
+            "directly to the shop, separate from the tour price.</div>"
             + '<div class="note"><strong>One thing to know</strong>: most of these shops keep '
             "daytime hours and close by around 16:00, well before this tour reaches them. If "
             "a reading is something you're genuinely curious about, it's worth coming back "
