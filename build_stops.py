@@ -635,21 +635,38 @@ alt_stops = [
         ),
     ),
     dict(
-        short="Shimosha (Main Hall, finale)",
+        short="Ishikiri Tsurugiya Shrine (finale)",
         elev=55,
-        title="Shimosha — the Main Hall",
-        subtitle="石切劔箭神社 下之社 · Tour finale",
+        title="Ishikiri Tsurugiya Shrine",
+        subtitle="石切劔箭神社 · \"Ishikiri-san\" · Tour finale",
         welcome_note="",
         content=(
-            "<p>The main hall and its inner sanctuary — where tonight's route quietly comes "
-            "to rest. Look for visitors circling the approach in slow, repeated laps — that's "
-            "<em>ohyakudo mairi</em>, \"the hundred-times pilgrimage,\" one of the shrine's "
-            "oldest and most visible customs.</p>"
-            + photo_slot("Shimosha main hall")
+            "<p>By day this is a busy neighborhood shrine. After dark, something shifts. The "
+            "crowds thin out, the lanterns take over from the sun, and the stone lions at the "
+            "gate seem to watch a little more closely. Step through, and you're stepping into "
+            "a story that's said to reach back some 2,600 years — to the reign of Emperor "
+            "Jinmu, the legendary first emperor of Japan, in whose era this shrine's origins "
+            "are traced.</p>"
+            "<p>Locals call it <em>Denbo no Kamisama</em> — a name tied to healing, and above "
+            "all to <em>gan-fuji</em>, warding off cancer. This is centuries-old belief, not "
+            "medical claim, and it's worth saying plainly: nothing here treats illness. But "
+            "belief has its own weight. People still travel here quietly, at all hours, to "
+            "pray for themselves or someone they love facing a serious diagnosis — and that "
+            "unspoken urgency lingers in the air in a way no ordinary sightseeing stop ever "
+            "does.</p>"
+            "<p>Watch the approach to the main hall and you may see it: figures walking the "
+            "same short stretch of ground again and again, a hundred times over. That's "
+            "<em>ohyakudo mairi</em>, \"the hundred-times pilgrimage\" — one prayer repeated "
+            "until it becomes a kind of vigil. At night, with almost no one else around, it "
+            "can feel less like a tourist sight and more like something you weren't quite "
+            "meant to witness.</p>"
+            + photo_img("ishikiri-shrine-night3.jpg", "Ishikiri Shrine covered walkway at night")
             + map_link(34.6823097, 135.6462518, "Ishikiri Tsurugiya Shrine")
-            + audio_slot("alt-08-shimosha.mp3")
-            + '<div class="note">Shin-Ishikiri Station, where you started your journey home, is a '
-            "short walk from here.</div>"
+            + audio_slot("main-09-ishikiri-shrine.mp3")
+            + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
+            "lighting is ordinary street lighting after dark. We mention this so expectations "
+            "stay grounded; the shrine's atmosphere, not spectacle, is the draw. Shin-Ishikiri "
+            "Station, where you started your journey home, is a short walk from here.</div>"
             + "<p>How was tonight's tour? If it brought even a little peace to your heart, or "
             "a bit of quiet strength for whatever comes next in your life — then this tour has "
             "done what it set out to do. Thank you for spending the evening with us.</p>"
