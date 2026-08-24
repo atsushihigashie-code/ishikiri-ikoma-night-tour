@@ -339,6 +339,7 @@ main_stops = [
         content=(
             "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
             "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            + photo_img("ishikiri-torii-illustration.jpg", "Ishikiri Shrine torii gate under a full moon")
             + audio_slot("main-07-to-ishikiri.mp3")
             + map_link(34.6852869, 135.6554838, "Ishikiri Station")
         ),
@@ -521,6 +522,7 @@ alt_stops = [
         content=(
             "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
             "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            + photo_img("ishikiri-torii-illustration.jpg", "Ishikiri Shrine torii gate under a full moon")
             + audio_slot("alt-05-to-ishikiri.mp3")
             + map_link(34.6852869, 135.6554838, "Ishikiri Station")
         ),
