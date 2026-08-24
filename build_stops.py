@@ -492,10 +492,16 @@ alt_stops = [
             + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead, '
             "but on the walk back from City Hall to Aramoto Station you'll pass two solid "
             "options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku grill house, and "
-            "<em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
+            "<em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain. Across the road from "
+            "those two, there's also a <em>Torikizoku</em> (yakitori izakaya) and a "
+            "<em>Gusto</em> family restaurant — solid, familiar options either way.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
             + map_link(34.6786649, 135.6047452, "Aramoto Station")
+            + '<div class="note"><strong>Eat here, or eat later?</strong> These four options '
+            "are your earliest chance at dinner tonight. If you'd rather visit Hozanji first "
+            "and eat near Ikoma Station afterward instead, that works too — just know it'll "
+            "be a later dinner, well past the usual dinner hour.</div>"
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
