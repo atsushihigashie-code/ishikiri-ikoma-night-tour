@@ -307,20 +307,13 @@ main_stops = [
         subtitle="生駒駅周辺で夕食",
         welcome_note="",
         content=(
-            "<p>Back down at Ikoma Station, settle in for dinner before the tour's final "
-            "stretch — the quiet descent into Ishikiri.</p>"
-            "<h3>A few options</h3>"
-            "<ul>"
-            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
-            "<li><strong>Nanko</strong> — izakaya near the station</li>"
-            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
-            "</ul>"
-            + photo_slot("Ikoma Station area at night")
+            "<p>By now, there've already been a couple of chances to eat: the two restaurants "
+            "you passed leaving City Hall, or the restaurant inside Ikomasanjo itself. If "
+            "you've already had dinner at one of those, feel free to skip ahead. If not, here's "
+            "the ticket-machine menu from the Ikomasanjo restaurant again as a reminder of "
+            "what's on offer — and if you're still hungry once you reach Ishikiri, there are "
+            "a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("main-06-ikoma-dinner.mp3")
-            + '<div class="note"><strong>Sample menu</strong>: here\'s a ticket-machine menu from '
-            "a restaurant in the area, with English translations, to give you a sense of what's "
-            "on offer. Cold udon runs ¥800–900, lunch plates ¥1,400–1,800, and kids plates "
-            "¥900–1,000.</div>"
             + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
             + photo_img("ikoma-dinner-menu2.jpg", "Restaurant ticket machine — lunch plates")
             + photo_img("ikoma-dinner-menu3.jpg", "Restaurant ticket machine — more lunch plates")
@@ -490,18 +483,11 @@ alt_stops = [
         subtitle="生駒駅周辺で夕食",
         welcome_note="",
         content=(
-            "<h3>A few options</h3>"
-            "<ul>"
-            "<li><strong>Doudan</strong> — izakaya, 1 min from the station, open 17:00–23:00, no closing day</li>"
-            "<li><strong>Nanko</strong> — izakaya near the station</li>"
-            "<li><strong>Tsukihi</strong> — 6F of Kintetsu Department Store Ikoma</li>"
-            "</ul>"
-            + photo_slot("Ikoma Station area at night")
+            "<p>By now, there've already been a couple of chances to eat: the two restaurants "
+            "you passed leaving City Hall, or a restaurant near here at Ikoma Station. If you've "
+            "already had dinner, feel free to skip ahead. If not, and you're still hungry once "
+            "you reach Ishikiri, there are a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("alt-04-ikoma-dinner.mp3")
-            + '<div class="note"><strong>Sample menu</strong>: here\'s a ticket-machine menu from '
-            "a restaurant in the area, with English translations, to give you a sense of what's "
-            "on offer. Cold udon runs ¥800–900, lunch plates ¥1,400–1,800, and kids plates "
-            "¥900–1,000.</div>"
             + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
             + photo_img("ikoma-dinner-menu2.jpg", "Restaurant ticket machine — lunch plates")
             + photo_img("ikoma-dinner-menu3.jpg", "Restaurant ticket machine — more lunch plates")
