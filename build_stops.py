@@ -513,6 +513,9 @@ alt_stops = [
             + '<div class="note"><strong>Tickets</strong>: a round trip on the Hozanji Line '
             "alone is about ¥500 — half the price of the full round trip to the summit, since "
             "you're only riding one of the two lines tonight.</div>"
+            + '<div class="note"><strong>Bring a light</strong>: once you step off at Hozanji, '
+            "the path ahead is mountainside and only lit where it needs to be. A flashlight "
+            "(a phone will do) makes the walk up much easier.</div>"
         ),
         transit="Torii-mae → Hozanji · Ikoma Cable (Hozanji Line) · a few minutes",
     ),
@@ -545,6 +548,9 @@ alt_stops = [
             "dark — quiet, atmospheric, and lit only by what's necessary — rather than a "
             "spectacle. It's also one of the better night-view spots on the mountain, looking "
             "out over the Nara basin.</div>"
+            + '<div class="note"><strong>Bring a light</strong>: the grounds are large, and '
+            "stairs and side paths beyond the main hall can get genuinely dark. Keep a "
+            "flashlight handy while you explore.</div>"
         ),
     ),
     dict(
@@ -628,6 +634,8 @@ alt_stops = [
             + photo_slot("Kamisha grounds")
             + map_link(34.6823097, 135.6462518, "Ishikiri Kamisha (Upper Shrine)")
             + audio_slot("alt-07-kamisha.mp3")
+            + '<div class="note"><strong>Bring a light</strong>: the stone steps up to Kamisha '
+            "are lit, but not brightly — a flashlight makes footing much easier after dark.</div>"
         ),
     ),
     dict(
@@ -690,23 +698,25 @@ MAIN_WELCOME_EXTRA = dict(
 )
 
 ALT_WELCOME_EXTRA = dict(
-    tagline="One coin. Two thousand six hundred years of story. Tonight, the summit rests — so we ride a different, older part of the mountain instead.",
+    tagline="One coin. Two faiths in one night — a Buddhist mountain temple and a Shinto shrine town, both after dark.",
     stats=[("¥500", "One Coin"), ("655 AD", "Hozanji Founded"), ("100x", "Ohyakudo Mairi")],
     narrative=(
-        "<h3>When the Summit Is Closed, the Mountain Still Has More to Offer</h3>"
-        "<p>The mountaintop amusement park doesn't run its night hours every evening. On the "
-        "nights it doesn't, this route swaps the summit deck for something older: a ride on "
-        "the Hozanji Line, a separate stretch of cable track that runs independently of the "
-        "summit line, up to Hozanji — a working Buddhist temple that's been a major pilgrimage "
-        "site since long before the amusement park existed. You'll still get the same skyline "
-        "opener at City Hall and the same shrine-town finale in Ishikiri — just a different, "
-        "quieter middle.</p>"
+        "<h3>A Night That Crosses Two Traditions</h3>"
+        "<p>This route ends up being something the main route isn't: a single evening that "
+        "moves between Japan's two major religious traditions. Hozanji, partway up the "
+        "mountain, is a working Buddhist temple with roots to 655 AD. Ishikiri Tsurugiya "
+        "Shrine, where the night ends, is Shinto, with its own much older founding legend. "
+        "Very few nights let you stand in both kinds of sacred space, lit by nothing but "
+        "lanterns and streetlight, within a few hours of each other.</p>"
         "<h3>A Slower Kind of Night</h3>"
         "<p>Instead of rides and lights, tonight's middle stretch is a night view over Nara "
         "from a mountainside temple, followed by more time in Ishikiri's shrine town — through "
         "its upper and lower halls, past a street of fortune tellers that's been read by "
         "locals for generations, and finally to the quiet ritual of <em>ohyakudo mairi</em>, "
         "a hundred-times pilgrimage walked by visitors who came for reasons of their own.</p>"
+        "<p><strong>Bring a flashlight</strong>: parts of tonight's route — the temple grounds, "
+        "the shrine paths — are only as bright as the lanterns and streetlight allow. A phone "
+        "flashlight works, but a real one is worth packing.</p>"
     ),
     blurbs=[
         "Meet here — Kintetsu Keihanna Line / Osaka Metro Chuo Line.",
