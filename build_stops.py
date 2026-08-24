@@ -138,7 +138,6 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
     welcome = HEAD.format(title=f"{route_title} — Welcome", rel=prev_root)
     welcome += f'<div class="eyebrow">{route_tag_label}</div>\n'
     welcome += f'<h1 class="title">{route_title}</h1>\n'
-    welcome += '<img class="welcome-hero" src="../shared/photos/welcome-night-tour.jpg" alt="Welcome to the night tour" />\n'
     if welcome_extra.get("tagline"):
         welcome += f'<p class="subtitle">{welcome_extra["tagline"]}</p>\n'
 
