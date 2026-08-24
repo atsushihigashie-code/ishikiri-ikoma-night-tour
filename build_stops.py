@@ -448,7 +448,7 @@ alt_stops = [
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
             "one of the region's best free night views.</p>"
-            + photo_img("welcome-night-tour.jpg", "Welcome to the night tour")
+            + photo_img("welcome-night-tour-2.jpg", "Welcome to the night tour")
             + map_link(34.6786649, 135.6047452, "Aramoto Station")
             + audio_slot("alt-01-arahon-station.mp3")
             + '<div class="note"><strong>Walking to City Hall</strong>: City Hall is about a '
