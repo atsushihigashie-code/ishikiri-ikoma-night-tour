@@ -334,19 +334,20 @@ main_stops = [
         ),
     ),
     dict(
-        short="Ride to Ishikiri",
+        short="Ride to Shin-Ishikiri",
         elev=40,
-        title="To Ishikiri Station",
-        subtitle="生駒駅 → 石切駅 · Kintetsu Nara Line, no transfer",
+        title="To Shin-Ishikiri Station",
+        subtitle="生駒駅 → 新石切駅 · Kintetsu Keihanna Line, no transfer",
         welcome_note="",
         content=(
-            "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
-            "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            "<p>Board any train heading toward Nagata or Osaka on the Kintetsu Keihanna Line "
+            "— every train stops at Shin-Ishikiri, so there's no train type to worry about "
+            "here. One stop, no transfer.</p>"
             + photo_img("ishikiri-torii-illustration.jpg", "Ishikiri Shrine torii gate under a full moon")
             + audio_slot("main-07-to-ishikiri.mp3")
-            + map_link(34.6852869, 135.6554838, "Ishikiri Station")
+            + map_link(34.6801618, 135.6408975, "Shin-Ishikiri Station")
         ),
-        transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
+        transit="Ikoma → Shin-Ishikiri · Kintetsu Keihanna Line · 1 stop, no transfer",
     ),
     dict(
         short="Ishikiri Approach Street — fortune tellers & locals",
@@ -420,7 +421,7 @@ main_stops = [
             + audio_slot("main-09-ishikiri-shrine.mp3")
             + '<div class="note"><strong>Note</strong>: there is no illumination event here — '
             "lighting is ordinary street lighting after dark. We mention this so expectations "
-            "stay grounded; the shrine's atmosphere, not spectacle, is the draw. Ishikiri "
+            "stay grounded; the shrine's atmosphere, not spectacle, is the draw. Shin-Ishikiri "
             "Station, where you started your journey home, is a short walk from here.</div>"
             + "<p>How was tonight's tour? If it brought even a little peace to your heart, or "
             "a bit of quiet strength for whatever comes next in your life — then this tour has "
@@ -581,19 +582,20 @@ alt_stops = [
         ),
     ),
     dict(
-        short="Ride to Ishikiri",
+        short="Ride to Shin-Ishikiri",
         elev=40,
-        title="To Ishikiri Station",
-        subtitle="生駒駅 → 石切駅 · Kintetsu Nara Line, no transfer",
+        title="To Shin-Ishikiri Station",
+        subtitle="生駒駅 → 新石切駅 · Kintetsu Keihanna Line, no transfer",
         welcome_note="",
         content=(
-            "<p>Board any Express, Semi-Express, Sub-Express, or Local train toward Osaka — "
-            "the Rapid Express does not stop at Ishikiri. One stop, no transfer.</p>"
+            "<p>Board any train heading toward Nagata or Osaka on the Kintetsu Keihanna Line "
+            "— every train stops at Shin-Ishikiri, so there's no train type to worry about "
+            "here. One stop, no transfer.</p>"
             + photo_img("ishikiri-torii-illustration.jpg", "Ishikiri Shrine torii gate under a full moon")
             + audio_slot("alt-05-to-ishikiri.mp3")
-            + map_link(34.6852869, 135.6554838, "Ishikiri Station")
+            + map_link(34.6801618, 135.6408975, "Shin-Ishikiri Station")
         ),
-        transit="Ikoma → Ishikiri · Kintetsu Nara Line · 1 stop, no transfer",
+        transit="Ikoma → Shin-Ishikiri · Kintetsu Keihanna Line · 1 stop, no transfer",
     ),
     dict(
         short="Ishikiri Approach Street — fortune tellers & locals",
@@ -643,7 +645,7 @@ alt_stops = [
             + photo_slot("Shimosha main hall")
             + map_link(34.6823097, 135.6462518, "Ishikiri Tsurugiya Shrine")
             + audio_slot("alt-08-shimosha.mp3")
-            + '<div class="note">Ishikiri Station, where you started your journey home, is a '
+            + '<div class="note">Shin-Ishikiri Station, where you started your journey home, is a '
             "short walk from here.</div>"
             + "<p>How was tonight's tour? If it brought even a little peace to your heart, or "
             "a bit of quiet strength for whatever comes next in your life — then this tour has "
