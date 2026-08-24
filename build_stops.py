@@ -249,9 +249,8 @@ main_stops = [
             "Station you'll pass two solid options: <em>Jonetsu Horumon</em>, a yakiniku grill "
             "house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
-            + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
-            + map_link(34.6789079, 135.6038037, "Osaka Ohsho")
+            + map_link(34.6786649, 135.6047452, "Aramoto Station")
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
@@ -486,9 +485,8 @@ alt_stops = [
             "Station you'll pass two solid options: <em>Jonetsu Horumon</em>, a yakiniku grill "
             "house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
-            + map_link(34.6789518, 135.6035193, "Jonetsu Horumon")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
-            + map_link(34.6789079, 135.6038037, "Osaka Ohsho")
+            + map_link(34.6786649, 135.6047452, "Aramoto Station")
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
