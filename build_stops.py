@@ -314,11 +314,13 @@ main_stops = [
         subtitle="生駒駅周辺で夕食",
         welcome_note="",
         content=(
-            "<p>By now, there've already been a couple of chances to eat: the two restaurants "
-            "you passed leaving City Hall, or the restaurant inside Ikomasanjo itself. If "
-            "you've already had dinner at one of those, feel free to skip ahead. If not, here's "
-            "the ticket-machine menu from the Ikomasanjo restaurant again as a reminder of "
-            "what's on offer — and if you're still hungry once you reach Ishikiri, there are "
+            "<p>This is honestly the best night view on the whole route — and there's a simple "
+            "trick to it: order something at the Ikomasanjo restaurant, and you get to sit and "
+            "eat while the entire basin glitters below you. Very few places let you pair a real "
+            "meal with a view like this. If you haven't eaten yet, we'd genuinely recommend "
+            "doing it here rather than saving it for later — dinner with this view is worth "
+            "building your evening around. Here's the ticket-machine menu again as a reminder "
+            "of what's on offer, and if you're still hungry once you reach Ishikiri, there are "
             "a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("main-06-ikoma-dinner.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
@@ -497,10 +499,11 @@ alt_stops = [
         subtitle="生駒駅周辺で夕食",
         welcome_note="",
         content=(
-            "<p>By now, there've already been a couple of chances to eat: the two restaurants "
-            "you passed leaving City Hall, or a restaurant near here at Ikoma Station. If you've "
-            "already had dinner, feel free to skip ahead. If not, and you're still hungry once "
-            "you reach Ishikiri, there are a few more options near Shin-Ishikiri Station too.</p>"
+            "<p>This is honestly one of the best dinner spots on the route — order something "
+            "here and you get to eat while the city lights spread out below. If you haven't "
+            "eaten yet, we'd genuinely recommend doing it here. Here's the ticket-machine menu "
+            "again as a reminder of what's on offer, and if you're still hungry once you reach "
+            "Ishikiri, there are a few more options near Shin-Ishikiri Station too.</p>"
             + audio_slot("alt-04-ikoma-dinner.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
             + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
