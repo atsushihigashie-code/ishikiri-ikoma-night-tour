@@ -356,7 +356,8 @@ main_stops = [
             "than almost anywhere else in Japan — palm reading, face reading, name divination, "
             "and a dozen other traditions, packed into shopfronts that have barely changed in "
             "decades. Most visitors just walk through. We'd rather you didn't.</p>"
-            "<p>Here's the thing about this street: it isn't really a tourist attraction. It's "
+            + audio_slot("main-08-approach-street.mp3")
+            + "<p>Here's the thing about this street: it isn't really a tourist attraction. It's "
             "where Osaka locals come, on ordinary weeknights, for an honest answer about "
             "something on their mind. Which means it's one of the very few places on this "
             "entire tour where you're not just looking at Japan — you're standing in the middle "
@@ -369,7 +370,6 @@ main_stops = [
             "half practical advice, half quiet ritual.</p>"
             + photo_img("ishikiri-shrine-night1.jpg", "Ishikiri Shrine main hall at night")
             + photo_img("ishikiri-shrine-night2.jpg", "Ishikiri Shrine approach at night")
-            + audio_slot("main-08-approach-street.mp3")
             + map_link(34.6823097, 135.6462518, "Ishikiri Approach Street")
             + '<div class="note"><strong>Try one, or don\'t</strong> — most shops are '
             "Japanese-only, so bring a translation app, or just point, smile, and see what "
@@ -383,6 +383,7 @@ main_stops = [
             "another afternoon before 4pm.</div>"
             '<div class="note"><strong>Small confession</strong>: the person who built this '
             "tour can actually read palms. Badly, but with real conviction. Ask, if you dare.</div>"
+            + audio_slot("main-08b-approach-street-outro.mp3")
         ),
     ),
     dict(
