@@ -482,20 +482,70 @@ alt_stops = [
         subtitle="荒本駅 → 生駒駅 · Kintetsu Keihanna Line, no transfer",
         welcome_note="",
         content=(
-            "<p>One direct ride, about 10 minutes, toward dinner.</p>"
+            "<p>One direct ride, about 10 minutes, toward Hozanji.</p>"
             + audio_slot("alt-03-to-ikoma.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
-            + '<div class="note"><strong>Save room for the summit, if you can</strong>: the '
-            "restaurant inside Ikomasanjo is genuinely one of the best dinner-with-a-view spots "
-            "on this whole route, so it's worth holding out for if your schedule allows. That "
-            "said, if you're too hungry to wait, on the walk back from City Hall to Aramoto "
-            "Station you'll pass two solid options: <em>Jonetsu Horumon</em>, a yakiniku grill "
-            "house, and <em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
+            + '<div class="note"><strong>Getting hungry already?</strong> Dinner is still ahead, '
+            "but on the walk back from City Hall to Aramoto Station you'll pass two solid "
+            "options if you can't wait: <em>Jonetsu Horumon</em>, a yakiniku grill house, and "
+            "<em>Osaka Ohsho</em>, a cheap-and-good Chinese diner chain.</div>"
             + photo_img("near-cityhall-yakiniku.jpg", "Jonetsu Horumon yakiniku restaurant")
             + photo_img("near-cityhall-chinese.jpg", "Osaka Ohsho Chinese diner")
             + map_link(34.6786649, 135.6047452, "Aramoto Station")
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
+    ),
+    dict(
+        short="Cable to Hozanji",
+        elev=280,
+        title="Ikoma Cable — the Hozanji Line",
+        subtitle="生駒ケーブル 宝山寺線 · Torii-mae → Hozanji",
+        welcome_note="",
+        content=(
+            "<p>Tonight's summit deck is closed, but there's still a mountain to ride: the "
+            "Hozanji Line is a completely separate stretch of track from the summit line, and "
+            "it runs on its own schedule — commuters and worshippers use it daily, regardless "
+            "of what's happening at the amusement park above. This was Japan's very first "
+            "cable railway, opened in 1918.</p>"
+            + photo_slot("Hozanji line cable car")
+            + audio_slot("alt-hozanji-cable.mp3")
+            + map_link(34.692398, 135.6961942, "Torii-mae Station")
+            + '<div class="note"><strong>Tickets</strong>: a round trip on the Hozanji Line '
+            "alone is about ¥500 — half the price of the full round trip to the summit, since "
+            "you're only riding one of the two lines tonight.</div>"
+        ),
+        transit="Torii-mae → Hozanji · Ikoma Cable (Hozanji Line) · a few minutes",
+    ),
+    dict(
+        short="Hozanji Temple",
+        elev=280,
+        title="Hozanji — the Mountain's Older Story",
+        subtitle="宝山寺 · \"Ikoma Shoten-san\"",
+        welcome_note="",
+        content=(
+            "<p>Known locally as <em>Ikoma Shoten-san</em>, Hozanji is a major pilgrimage site "
+            "dedicated to Daishō Kangiten, a deity believed to grant worldly wishes — and its "
+            "history runs deeper than almost anything else on this tour. Tradition holds that "
+            "the mountain ascetic En no Gyōja trained in a cave on these grounds as far back "
+            "as 655, the founding year the temple itself claims. That cave, known as "
+            "<em>Hannya-kutsu</em>, is said to take its name from a copy of the Prajñāpāramitā "
+            "Sutra he placed inside it. Kūkai, the monk who founded Shingon Buddhism, is also "
+            "said to have trained on this same mountain.</p>"
+            "<p>The temple as it stands today traces to the 17th century, when the priest "
+            "Tankai — a serious scholar-monk trained at Eitai-ji in Edo and on Mt. Kōya — "
+            "enshrined Daishō Kangiten here. Tankai's rituals for the deity were said to be "
+            "so effective that his reputation spread widely, and Hozanji became one of the "
+            "most visited temples in the region.</p>"
+            + photo_slot("Hozanji temple grounds at night")
+            + audio_slot("alt-hozanji-temple.mp3")
+            + map_link(34.684667, 135.686556, "Hozanji Temple")
+            + '<div class="note"><strong>Visiting at night</strong>: the temple grounds close '
+            "to general visitors around 16:30 (16:00 in winter), but the main hall and prayer "
+            "hall remain open for worship at any hour. Expect a working Buddhist temple after "
+            "dark — quiet, atmospheric, and lit only by what's necessary — rather than a "
+            "spectacle. It's also one of the better night-view spots on the mountain, looking "
+            "out over the Nara basin.</div>"
+        ),
     ),
     dict(
         short="Dinner near Ikoma Station",
@@ -640,25 +690,30 @@ MAIN_WELCOME_EXTRA = dict(
 )
 
 ALT_WELCOME_EXTRA = dict(
-    tagline="One coin. Two thousand six hundred years of story. Tonight, the mountain rests — so the shrine gets more of your time instead.",
-    stats=[("¥500", "One Coin"), ("~660 BC", "Shrine Founded"), ("100x", "Ohyakudo Mairi")],
+    tagline="One coin. Two thousand six hundred years of story. Tonight, the summit rests — so we ride a different, older part of the mountain instead.",
+    stats=[("¥500", "One Coin"), ("655 AD", "Hozanji Founded"), ("100x", "Ohyakudo Mairi")],
     narrative=(
-        "<h3>When the Summit Is Closed, the Shrine Opens Wider</h3>"
-        "<p>The mountaintop amusement park doesn't run its night hours every evening — and on "
-        "the nights it doesn't, this route trades the cable-car ascent for something quieter: "
-        "more time in Ishikiri, the shrine town said to trace its roots back some 2,600 years, "
-        "to the reign of Japan's legendary first emperor. You'll still get the same skyline "
-        "opener at City Hall and the same finale — just a different middle.</p>"
+        "<h3>When the Summit Is Closed, the Mountain Still Has More to Offer</h3>"
+        "<p>The mountaintop amusement park doesn't run its night hours every evening. On the "
+        "nights it doesn't, this route swaps the summit deck for something older: a ride on "
+        "the Hozanji Line, a separate stretch of cable track that runs independently of the "
+        "summit line, up to Hozanji — a working Buddhist temple that's been a major pilgrimage "
+        "site since long before the amusement park existed. You'll still get the same skyline "
+        "opener at City Hall and the same shrine-town finale in Ishikiri — just a different, "
+        "quieter middle.</p>"
         "<h3>A Slower Kind of Night</h3>"
-        "<p>Without the mountain in the mix, tonight has room to slow down at the shrine itself "
-        "— through its upper and lower halls, past a street of fortune tellers that's been read "
-        "by locals for generations, and finally to the quiet ritual of <em>ohyakudo mairi</em>, "
+        "<p>Instead of rides and lights, tonight's middle stretch is a night view over Nara "
+        "from a mountainside temple, followed by more time in Ishikiri's shrine town — through "
+        "its upper and lower halls, past a street of fortune tellers that's been read by "
+        "locals for generations, and finally to the quiet ritual of <em>ohyakudo mairi</em>, "
         "a hundred-times pilgrimage walked by visitors who came for reasons of their own.</p>"
     ),
     blurbs=[
         "Meet here — Kintetsu Keihanna Line / Osaka Metro Chuo Line.",
         "A free, award-recognized night view, 22 floors up — tonight's opening act.",
         "One direct ride toward Ikoma.",
+        "A separate cable line, running on its own — Japan's very first cable railway.",
+        "A working Buddhist temple with roots to 655 AD, and a quiet night view over Nara.",
         "A break to eat near Ikoma Station.",
         "One stop toward the old shrine town.",
         "A street of fortune tellers that's been read by locals for generations.",
