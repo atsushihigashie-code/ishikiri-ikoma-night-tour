@@ -501,7 +501,7 @@ alt_stops = [
             + '<div class="note"><strong>Eat here, or eat later?</strong> These four options '
             "are your earliest chance at dinner tonight. If you'd rather visit Hozanji first "
             "and eat near Ikoma Station afterward instead, that works too — just know it'll "
-            "be a later dinner, well past the usual dinner hour.</div>"
+            "be a later dinner — about an hour later than eating here.</div>"
         ),
         transit="Aramoto → Ikoma · Kintetsu Keihanna Line · ~10 min, no transfer",
     ),
