@@ -192,7 +192,7 @@ main_stops = [
             "An easy night out with three free-or-cheap highlights: a skyline view 22 floors "
             "up, a historic mountain cable car, and a quiet shrine town — all reachable by "
             "ordinary train, no hiking required. Nine stops, each worth lingering in — meet "
-            "at Aramoto Station around 17:00 (autumn season) and we'll begin."
+            "at Aramoto Station around 5pm (autumn season) and we'll begin."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
@@ -440,7 +440,7 @@ alt_stops = [
             "self-guided route trades the summit deck for a shorter cable ride to Hozanji, a "
             "Buddhist temple partway up the mountain, opening with a free skyline view and "
             "closing with a slower, quieter finale at Ishikiri Tsurugiya Shrine. Meet at "
-            "Aramoto Station around 17:00 (autumn season)."
+            "Aramoto Station around 5pm (autumn season)."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
