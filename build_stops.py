@@ -186,10 +186,10 @@ main_stops = [
         title="Aramoto Station",
         subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
-            "Tonight's route climbs, quite literally: from a city-hall skyline view, up a "
-            "mountain by cable car, then back down to a shrine town where the night ends "
-            "slowly. Nine stops, each worth lingering in — meet at Aramoto Station around "
-            "17:00 (autumn season) and we'll begin."
+            "An easy night out with three free-or-cheap highlights: a skyline view 22 floors "
+            "up, a historic mountain cable car, and a quiet shrine town — all reachable by "
+            "ordinary train, no hiking required. Nine stops, each worth lingering in — meet "
+            "at Aramoto Station around 17:00 (autumn season) and we'll begin."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
@@ -426,10 +426,10 @@ alt_stops = [
         title="Aramoto Station",
         subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
-            "The mountaintop park is closed or off its night hours today, so tonight's route "
-            "trades the summit deck for more time at the shrine and its street, opening with "
-            "the skyline view and closing with a slower, quieter finale in Ishikiri. Meet at "
-            "Aramoto Station around 17:00 (autumn season)."
+            "The mountaintop park is closed or off its night hours today, so tonight's easy, "
+            "self-guided route trades the summit deck for more time at the shrine and its "
+            "street, opening with a free skyline view and closing with a slower, quieter "
+            "finale in Ishikiri. Meet at Aramoto Station around 17:00 (autumn season)."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
