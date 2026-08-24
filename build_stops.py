@@ -560,17 +560,11 @@ alt_stops = [
         subtitle="生駒駅周辺で夕食",
         welcome_note="",
         content=(
-            "<p>This is honestly one of the best dinner spots on the route — order something "
-            "here and you get to eat while the city lights spread out below. If you haven't "
-            "eaten yet, we'd genuinely recommend doing it here. Here's the ticket-machine menu "
-            "again as a reminder of what's on offer, and if you're still hungry once you reach "
-            "Ishikiri, there are a few more options near Shin-Ishikiri Station too.</p>"
+            "<p>Ikoma Station has plenty of restaurants and cafes within a short walk — from "
+            "casual izakaya to department store dining floors. Take a lap, see what looks "
+            "good, and settle in before continuing on to Ishikiri.</p>"
             + audio_slot("alt-04-ikoma-dinner.mp3")
             + map_link(34.6931918, 135.6978685, "Ikoma Station")
-            + photo_img("ikoma-dinner-menu1.jpg", "Restaurant ticket machine — cold udon menu")
-            + photo_img("ikoma-dinner-menu2.jpg", "Restaurant ticket machine — lunch plates")
-            + photo_img("ikoma-dinner-menu3.jpg", "Restaurant ticket machine — more lunch plates")
-            + photo_img("ikoma-dinner-menu4.jpg", "Restaurant ticket machine — kids plates")
         ),
     ),
     dict(
