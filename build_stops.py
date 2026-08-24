@@ -437,9 +437,10 @@ alt_stops = [
         subtitle="荒本駅 · Kintetsu Keihanna Line / Osaka Metro Chuo Line",
         welcome_note=(
             "The mountaintop park is closed or off its night hours today, so tonight's easy, "
-            "self-guided route trades the summit deck for more time at the shrine and its "
-            "street, opening with a free skyline view and closing with a slower, quieter "
-            "finale in Ishikiri. Meet at Aramoto Station around 17:00 (autumn season)."
+            "self-guided route trades the summit deck for a shorter cable ride to Hozanji, a "
+            "Buddhist temple partway up the mountain, opening with a free skyline view and "
+            "closing with a slower, quieter finale at Ishikiri Tsurugiya Shrine. Meet at "
+            "Aramoto Station around 17:00 (autumn season)."
         ),
         content=(
             "<p>You're at the foot of tonight's first stop: Higashiosaka City Hall, home to "
