@@ -623,22 +623,6 @@ alt_stops = [
         ),
     ),
     dict(
-        short="Kamisha (Upper Shrine)",
-        elev=65,
-        title="Kamisha — the Upper Shrine",
-        subtitle="石切劔箭神社 上之社",
-        welcome_note="",
-        content=(
-            "<p>A quieter, elevated companion to the main shrine, about 7 minutes on foot from "
-            "the station. Visiting Kamisha before the main hall is the recommended order.</p>"
-            + photo_slot("Kamisha grounds")
-            + map_link(34.6823097, 135.6462518, "Ishikiri Kamisha (Upper Shrine)")
-            + audio_slot("alt-07-kamisha.mp3")
-            + '<div class="note"><strong>Bring a light</strong>: the stone steps up to Kamisha '
-            "are lit, but not brightly — a flashlight makes footing much easier after dark.</div>"
-        ),
-    ),
-    dict(
         short="Shimosha (Main Hall, finale)",
         elev=55,
         title="Shimosha — the Main Hall",
@@ -727,7 +711,6 @@ ALT_WELCOME_EXTRA = dict(
         "A break to eat near Ikoma Station.",
         "One stop toward the old shrine town.",
         "A street of fortune tellers that's been read by locals for generations.",
-        "The upper hall — a quieter, elevated companion to the main shrine.",
         "The main hall, where the night quietly ends.",
     ],
 )
