@@ -138,6 +138,9 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
     welcome = HEAD.format(title=f"{route_title} — Welcome", rel=prev_root)
     welcome += f'<div class="eyebrow">{route_tag_label}</div>\n'
     welcome += f'<h1 class="title">{route_title}</h1>\n'
+    if welcome_extra.get("narration_audio"):
+        welcome += (f'<audio class="stop-audio" controls preload="none" '
+                    f'src="{prev_root}shared/audio/{welcome_extra["narration_audio"]}"></audio>\n')
     if welcome_extra.get("tagline"):
         welcome += f'<p class="subtitle">{welcome_extra["tagline"]}</p>\n'
 
@@ -591,6 +594,7 @@ alt_stops = [
 ]
 
 MAIN_WELCOME_EXTRA = dict(
+    narration_audio="main-00-welcome.mp3",
     tagline="One coin. Two thousand six hundred years of story. A city that never sleeps, seen from above and from the ground.",
     stats=[("¥500", "One Coin"), ("642m", "Summit Height"), ("~660 BC", "Shrine Founded")],
     narrative=(
