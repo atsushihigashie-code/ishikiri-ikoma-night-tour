@@ -517,12 +517,13 @@ alt_stops = [
             "it runs on its own schedule — commuters and worshippers use it daily, regardless "
             "of what's happening at the amusement park above. This was Japan's very first "
             "cable railway, opened in 1918.</p>"
-            + photo_slot("Hozanji line cable car")
+            + photo_img("hozanji-cable-train.jpg", "Ikoma Cable train at the Hozanji Line platform")
             + audio_slot("alt-hozanji-cable.mp3")
             + map_link(34.692398, 135.6961942, "Torii-mae Station")
             + '<div class="note"><strong>Tickets</strong>: a round trip on the Hozanji Line '
             "alone is about ¥500 — half the price of the full round trip to the summit, since "
             "you're only riding one of the two lines tonight.</div>"
+            + photo_img("hozanji-cable-ticket.jpg", "Ticket machine — Hozanji Line vs. Ikomasanjo")
             + '<div class="note"><strong>Bring a light</strong>: once you step off at Hozanji, '
             "the path ahead is mountainside and only lit where it needs to be. A flashlight "
             "(a phone will do) makes the walk up much easier.</div>"
