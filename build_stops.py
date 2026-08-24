@@ -92,13 +92,13 @@ def external_link(url, label):
 
 
 def audio_slot(filename):
+    audio_path = os.path.join(PUBLIC, "shared", "audio", filename)
+    if os.path.exists(audio_path):
+        return f'<audio class="stop-audio" controls preload="none" src="../shared/audio/{filename}"></audio>'
     return f'''<div class="audio-slot">
 <div class="dot">♪</div>
 <div>AUDIO PENDING<br/>expects: shared/audio/{filename}</div>
-</div>
-<!-- once recorded, replace the block above with:
-<audio class="stop-audio" controls src="{{rel}}shared/audio/{filename}"></audio>
--->'''
+</div>'''
 
 def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_root="../", welcome_extra=None):
     n = len(stops)
