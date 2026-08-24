@@ -20,6 +20,10 @@ HEAD = """<!doctype html>
 """
 
 FOOT = """</div>
+<audio class="bgm-audio" autoplay loop preload="auto">
+<source src="{rel}shared/audio/bgm-main.mp3" type="audio/mpeg" />
+</audio>
+<script src="{rel}shared/bgm-ducking.js"></script>
 <script src="{rel}access-guard.js"></script>
 </body>
 </html>
