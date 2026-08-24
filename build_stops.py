@@ -138,6 +138,9 @@ def build_route(route_key, route_dir, route_title, route_tag_label, stops, prev_
     welcome = HEAD.format(title=f"{route_title} — Welcome", rel=prev_root)
     welcome += f'<div class="eyebrow">{route_tag_label}</div>\n'
     welcome += f'<h1 class="title">{route_title}</h1>\n'
+    if welcome_extra.get("hero_image"):
+        img, alt = welcome_extra["hero_image"]
+        welcome += f'<img class="welcome-hero" src="{prev_root}shared/photos/{img}" alt="{alt}" />\n'
     if welcome_extra.get("narration_audio"):
         welcome += (f'<audio class="stop-audio" controls preload="none" '
                     f'src="{prev_root}shared/audio/{welcome_extra["narration_audio"]}"></audio>\n')
@@ -677,6 +680,8 @@ MAIN_WELCOME_EXTRA = dict(
 )
 
 ALT_WELCOME_EXTRA = dict(
+    hero_image=("alt-welcome-night-view.jpg", "Night view from Mt. Ikoma over Osaka"),
+    narration_audio="alt-00-welcome.mp3",
     tagline="One coin. Two faiths in one night — a Buddhist mountain temple and a Shinto shrine town, both after dark.",
     stats=[("¥500", "One Coin"), ("655 AD", "Hozanji Founded"), ("100x", "Ohyakudo Mairi")],
     narrative=(
