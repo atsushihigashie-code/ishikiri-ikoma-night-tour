@@ -54,6 +54,10 @@
 
     if (!data) return { ok: false, reason: "not_found" };
 
+    if (typeof data.expiresAt === "number" && Date.now() > data.expiresAt) {
+      return { ok: false, reason: "expired" };
+    }
+
     var maxUses = typeof data.maxUses === "number" ? data.maxUses : 0;
     var uses = typeof data.uses === "number" ? data.uses : 0;
 
@@ -83,7 +87,8 @@
       var messages = {
         empty: "Enter your access code first.",
         not_found: "That code didn't match. Check for typos, or purchase a code below.",
-        exhausted: "This code has already been used its full number of times."
+        exhausted: "This code has already been used its full number of times.",
+        expired: "This code has expired. Please contact your booking provider for a new code."
       };
       errorEl.textContent = messages[result.reason] || "Something went wrong — try again.";
       errorEl.style.display = "block";

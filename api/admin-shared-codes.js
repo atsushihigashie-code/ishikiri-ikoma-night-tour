@@ -47,6 +47,8 @@ module.exports = async function handler(req, res) {
         source,
         maxUses: typeof data.maxUses === "number" ? data.maxUses : 0,
         uses: typeof data.uses === "number" ? data.uses : 0,
+        createdAt: data.createdAt || null,
+        expiresAt: data.expiresAt || null,
       });
     }
 

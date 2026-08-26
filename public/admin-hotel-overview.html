@@ -179,6 +179,8 @@
           <th>コード</th>
           <th class="num">使用回数</th>
           <th class="num">上限</th>
+          <th>発行日</th>
+          <th>有効期限</th>
         </tr>
       </thead>
       <tbody id="codeTableBody"></tbody>
@@ -284,6 +286,12 @@
     return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
+  function formatDate(ms) {
+    if (!ms) return '—';
+    const d = new Date(ms);
+    return d.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+  }
+
   async function loadSharedCodes(adminKey) {
     const codeTable = document.getElementById('codeTable');
     const codeTableBody = document.getElementById('codeTableBody');
@@ -314,6 +322,8 @@
           <td class="code-cell">${c.code}</td>
           <td class="num">${c.uses}</td>
           <td class="num">${c.maxUses}</td>
+          <td>${formatDate(c.createdAt)}</td>
+          <td>${formatDate(c.expiresAt)}</td>
         `;
         codeTableBody.appendChild(tr);
       }
