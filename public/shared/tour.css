@@ -372,6 +372,12 @@ audio.stop-audio{ width:100%; }
   color: var(--moonlight);
   border: 1px solid var(--line);
 }
+.btn-code{
+  background: #2f3b2f;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(47,59,47,.35);
+  font-weight: 700;
+}
 
 /* ---------- Route select cards (landing) ---------- */
 .route-choice{
